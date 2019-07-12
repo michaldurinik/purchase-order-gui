@@ -8,13 +8,15 @@ body{
 }
 
 #body-container{
-
+margin-top: 10%;
 }
 
 #container-login{
   border-radius: 30%;
   display: inline-block;
   background-color: lightgrey;
-  height: 60%;
+  height: 100%;
   width:40%;
+  padding: 3%;
+  clear: both;
 }
