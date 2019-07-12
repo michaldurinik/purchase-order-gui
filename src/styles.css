@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color: orange;
+  text-align: center;
+}
+#navigation{
+
+}
+
+#body-container{
+
+}
+
+#container-login{
+  border-radius: 30%;
+  display: inline-block;
+  background-color: lightgrey;
+  height: 60%;
+  width:40%;
+}
