@@ -1,12 +1,14 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
-import {AppComponent} from '../app.component';
 import {FormsComponent} from '../forms/forms.component';
+import {OrdersComponent} from '../orders/orders.component';
+import {HomeComponent} from '../home/home.component';
 
 export const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'forms', component: FormsComponent },
-  { path: '', component: AppComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '**', redirectTo: ''},
 ];
