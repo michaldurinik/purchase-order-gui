@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD
   title = 'LIT Purchase Order';
+=======
+>>>>>>> master
 }
