@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Suppliers} from '../model/supplier-details';
-import {HttpClient} from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Suppliers } from '../model/supplier-details';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forms',
