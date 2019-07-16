@@ -5,17 +5,23 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsComponent } from './forms/forms.component';
 import { OrdersComponent } from './orders/orders.component';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './services/routes';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FormsComponent,
-    OrdersComponent
+    OrdersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
