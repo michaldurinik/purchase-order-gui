@@ -1,0 +1,33 @@
+[
+  {
+    "name": "BIC Corporation",
+    "address": "500 BIC Drive, Milford, Connecticut 0640, U.S.A.",
+    "telephone": "(203) 783-2000",
+    "email": "supplies@BIC.com"
+  },
+  {
+    "name": "Musgraves",
+    "address": "Duncrue Road, Dargan Crescent, Belfast. BT3 9HJ",
+    "telephone": "+44 28 9078 4800",
+    "email": "marketplace@musgraves.co.uk"
+  },
+  {
+    "name": "HP",
+    "address": "Liffey Valley Office Campus 1st Floor, Block B, Quarryvale, Dublin, D22 X0Y3, Ireland",
+    "telephone": "+353 (0)1 6161140",
+    "email": "sales@HP.ie"
+  },
+  {
+    "name": "Aer Lingus Limited",
+    "address": "Dublin Airport, Co. Dublin, Ireland",
+    "telephone": "+353 1 8868202",
+    "email": "sales@aerlingus.ie"
+  },
+  {
+    "name": "Elite Office Furniture Scene",
+    "address": "Office Furniture Scene, 23a Mahoney Green, Rackheath, Norwich, NR13 6JY",
+    "telephone": "0845 0737230",
+    "email": "info@officefurniturescene.co.uk"
+  }
+
+]
