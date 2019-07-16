@@ -10,6 +10,8 @@ import { OrdersComponent } from './orders/orders.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './services/routes';
 import { HomeComponent } from './home/home.component';
+import { MenubarModule } from 'primeng/menubar';
+import {SlideMenuModule} from 'primeng/slidemenu';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HomeComponent } from './home/home.component';
     InputTextModule,
     PasswordModule,
     RouterModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MenubarModule,
+    SlideMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
