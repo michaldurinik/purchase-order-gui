@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Suppliers } from '../model/supplier-details';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./forms.component.css']
 })
 
-export class FormsComponent implements OnInit {
-  title = 'LIT Purchase Orders - FORMS'
+export class FormsComponent {
+  title = 'LIT Purchase Orders - FORMS';
   suppliers: Suppliers[];
 
   constructor(private http: HttpClient) {
