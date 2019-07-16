@@ -1,15 +1,12 @@
-<div style="text-align:center">
+<div class="login_container">
   <h1>
     Login to {{ title }}!
   </h1>
   <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
   <br>
-  <h4>Username</h4>
-  <div class="ui-g-12 ui-md-center">
-    <input type="text" size="35" pInputText placeholder="N-number">
-    <h4>Password:</h4>
-    <input type="password" size="35" pInputText placeholder="Password">
-  </div>
-  <br>
-  <br><a routerLink="/home"><button pButton type="button" label="Login" class="ui-button-rounded ui-button-info"></button></a>
+  <p>Username  <input type="text" size="30" pInputText placeholder="N-number"></p>
+  <p>Password  <input type="password" size="30" pInputText placeholder="Password"></p>
+  <br><a routerLink="/home"><button onclick="alert('Welcome to LIT Purchase Order !')" pButton type="button" label="Login" class="ui-button-raised"></button></a>
+
 </div>
+

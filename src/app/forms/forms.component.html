@@ -1,20 +1,23 @@
-<table>
-  <thead>
-  <tr>
-    <td><b>Supplier name</b></td>
-    <td><b>Address</b></td>
-    <td><b>Phone no.</b></td>
-    <td><b>Email.</b></td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let company of suppliers">
-    <td>{{company.name}}</td>
-    <td>{{company.address}}</td>
-    <td>{{company.telephone}}</td>
-    <td>{{company.email}}</td></tr>
-  </tbody>
-</table>
-
-<button pButton type="button" label="testing button" (click) = showSuppliers() class="ui-button-rounded ui-button-info">
-</button>
+<div style="text-align:center">
+  <div class="homebutton">
+    <a routerLink="/home"><button pButton type="button" label="Home">
+  </button></a>
+  </div>
+  <div class="logoutbutton">
+    <a routerLink="/login"><button class="logoutbutton" pButton label="Logout"></button></a>
+  </div>
+  <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
+  <br>
+  <br>
+  <p><div class="divider"></div><a routerLink=""><button pButton type="button" label="Standard" class="ui-button-raised">
+  </button></a>
+  <div class="divider"></div>
+  <a routerLink="\\\\\\\\\"><button pButton type="button" label="Travel" class="ui-button-raised">
+  </button></a>
+  <div class="divider"></div>
+  <a routerLink=""><button pButton type="button" label="Training" class="ui-button-raised">
+  </button></a>
+  <div class="divider"></div>
+  <a routerLink=""><button pButton type="button" label="Contractor" class="ui-button-raised">
+  </button></a>
+</div>

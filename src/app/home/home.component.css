@@ -1,0 +1,15 @@
+.divider{
+  width:20px;
+  height:auto;
+  display:inline-block;
+}
+.ui-button-raised {
+  width: 200px;
+  font-size: 22px;
+}
+.logoutbutton {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  right: 0;
+}
