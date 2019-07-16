@@ -30,12 +30,21 @@ once 1 person approve, you will be able to merge to master on github page
 
 ### Merges
 
-if you want latest details from master to your branch
+###### if you want the latest details from master to your branch:
 
 commit and push your changes to your branch
  
 `git checkout master` switch to master branch
 
+`git pull` to get the latest changes in master
+
+`git checkout` YOUR_BRANCH_NAME
+
+`git merge master` will merge master into your branch
+
+if you get merge conflict, editor will pop up and choose which version to keep
+
+==============================================================================
 
 # PurchaseOrder
 
