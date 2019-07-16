@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { AppComponent } from './app.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 import { LoginComponent } from './login/login.component';
 import { FormsComponent } from './forms/forms.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -20,6 +22,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     ButtonModule,
+    InputTextModule,
+    PasswordModule,
     RouterModule,
     RouterModule.forRoot(appRoutes)
   ],

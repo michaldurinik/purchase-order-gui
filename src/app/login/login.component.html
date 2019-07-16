@@ -1,4 +1,15 @@
-<h1>Login Here</h1>
-<p><a routerLink="/home"><button pButton type="button" label="Login" class="ui-button-rounded ui-button-info">
-</button></a></p>
-
+<div style="text-align:center">
+  <h1>
+    Login to {{ title }}!
+  </h1>
+  <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
+  <br>
+  <h4>Username</h4>
+  <div class="ui-g-12 ui-md-center">
+    <input type="text" size="35" pInputText placeholder="N-number">
+    <h4>Password:</h4>
+    <input type="password" size="35" pInputText placeholder="Password">
+  </div>
+  <br>
+  <br><a routerLink="/home"><button pButton type="button" label="Login" class="ui-button-rounded ui-button-info"></button></a>
+</div>
