@@ -1,3 +1,42 @@
+# Git workflow
+
+### Branches:
+
+`git status` to check status of files for staging, of which branch you are on
+
+`git checkout NAME_OF_BRANCH` switches to branch
+
+`git checkout -b NAME_OF_NEW_BRANCH` create new branch and switch to it
+
+### Committing:
+
+git status before hand is recommended
+
+`git add FILE_NAME` adding file name to stage
+
+`git add .` add ALL upstaged files
+
+`git commit -m "YOUR_COMMIT_MESSAGE_HERE"` commit changes
+
+`git push` will push changes to remote branch (if remote branch doesnt exist see bellow)
+
+`git push -u origin NAME_OF_NEW_REMOTE_BRANCH` will create new remote branch and push to it
+
+### Pull requests:
+
+create pull request on github page, `master < your branch` and add reviewers
+
+once 1 person approve, you will be able to merge to master on github page
+
+### Merges
+
+if you want latest details from master to your branch
+
+commit and push your changes to your branch
+ 
+`git checkout master` switch to master branch
+
+
 # PurchaseOrder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
