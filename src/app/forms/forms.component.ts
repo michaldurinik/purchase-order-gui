@@ -8,13 +8,18 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent {
-  companies: Suppliers[];
-  company = this.companies[0];
-
+  suppliers: Suppliers[];
 
   constructor(private http: HttpClient) {
+    this.suppliers = [];
 
-    this.http.get<Suppliers[]>('assets/data/Suppliers.json')
-      .subscribe(company => this.companies = company);
+    this.http.get<Suppliers[]>('assets/data/suppliers.json')
+      .subscribe(company => this.suppliers = company);
+  }
+
+  showSuppliers() {
+    for (const company of this.suppliers) {
+      console.log(company.name);
+    }
   }
 }

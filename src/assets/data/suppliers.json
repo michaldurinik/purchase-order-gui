@@ -2,8 +2,8 @@
   {
     "name": "BIC Corporation",
     "address": "500 BIC Drive, Milford, Connecticut 0640, U.S.A.",
-    "Telephone": "(203) 783-2000",
-    "Email": "supplies@BIC.com"
+    "telephone": "(203) 783-2000",
+    "email": "supplies@BIC.com"
   },
   {
     "name": "Musgraves",
