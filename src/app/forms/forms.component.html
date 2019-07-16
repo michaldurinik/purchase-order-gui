@@ -1,1 +1,20 @@
-<p>forms works!</p>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+  <tr>
+    <td>Supplier name</td>
+    <td>Address</td>
+    <td>Phone no.</td>
+    <td>Email.</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let company of suppliers">
+    <td>{{company.name}}</td>
+    <td>{{company.address}}</td>
+    <td>{{company.telephone}}</td>
+    <td>{{company.email}}</td></tr>
+  </tbody>
+</table>
+
+<button pButton type="button" label="testing button" (click) = showSuppliers() class="ui-button-rounded ui-button-info">
+</button>

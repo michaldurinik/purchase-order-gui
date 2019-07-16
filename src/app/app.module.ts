@@ -7,9 +7,10 @@ import { PasswordModule } from 'primeng/password';
 import { LoginComponent } from './login/login.component';
 import { FormsComponent } from './forms/forms.component';
 import { OrdersComponent } from './orders/orders.component';
-import {RouterModule} from '@angular/router';
-import {appRoutes} from './services/routes';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './services/routes';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     FormsComponent,
     OrdersComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     InputTextModule,
     PasswordModule,
     RouterModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
