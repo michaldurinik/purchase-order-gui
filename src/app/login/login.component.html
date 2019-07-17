@@ -1,17 +1,17 @@
 <div class="login_container">
-  <h1>
+  <h2>
     Login to {{ title }}!
-  </h1>
+  </h2>
   <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
 
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
 
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.nnumber.errors }">
       <input type="nNumber" size="30" pInputText placeholder="nNumber" tabindex="1" formControlName="nnumber">
     </p>
 
-    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
-      <div *ngIf="formControls.name.errors.required">name is required</div>
+    <div *ngIf="isSubmitted && formControls.nnumber.errors" class="help-block">
+      <p *ngIf="formControls.nnumber.errors.required">name is required</p>
     </div>
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
