@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted = false;
   user: User;
+  userList = sampleUsers();
+  msgs = [];
 
   ngOnInit() {
     this.loginForm  =  this.formBuilder.group({
@@ -27,8 +29,32 @@ export class LoginComponent implements OnInit {
 
   get formControls() { return this.loginForm.controls; }
 
+  findUser(nnumber): User {
+    for (const user of this.userList) {
+      if (user.nnumber === nnumber) {
+        return user;
+      }
+    }
+    return null;
+  }
+
+  showError() {
+    this.msgs = [];
+    this.msgs.push({severity: 'error', summary: 'Error Message', detail: 'Invalid name or Password'});
+  }
+
   login() {
-  console.log(this.loginForm.value);
-  this.router.navigateByUrl('/home');
+    const currentUser = this.findUser(this.loginForm.value.nnumber);
+    console.log(currentUser);
+    if (currentUser != null) {
+      if (currentUser.password === this.loginForm.value.password) {
+        currentUser.authenticate();
+      }
+    } else {
+      return;
+    }
+    if (currentUser.isAuthenticated) {
+      this.router.navigateByUrl('/home');
+    }
   }
 }

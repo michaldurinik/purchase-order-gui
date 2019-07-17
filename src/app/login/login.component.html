@@ -8,9 +8,9 @@
 <!--  <p>Password  <input type="password" size="30" pInputText placeholder="Password" tabindex="2"></p>-->
 <!--  <br><a routerLink="/home"><button onclick="alert('Welcome to LIT Purchase Order !')" pButton type="button" label="Login" class="ui-button-raised"></button></a>-->
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
-
+    
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-      <input type="nNumber" placeholder="nNumber" formControlName="nnumber">
+      <input type="nNumber" size="30" pInputText placeholder="nNumber" tabindex="1" formControlName="nnumber">
     </p>
 
     <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
@@ -18,7 +18,7 @@
     </div>
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-      <input type="password" placeholder="Password" formControlName="password">
+      <input type="password" size="30" pInputText placeholder="Password" tabindex="2" formControlName="password">
     </p>
 
     <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
@@ -27,6 +27,7 @@
 
     <p>
       <input type="submit" value="Log in">
+<!--      <button onclick="alert('')" pButton type="button" label="Login" class="ui-button-raised"></button>-->
     </p>
   </form>
 
