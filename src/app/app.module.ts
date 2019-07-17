@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './services/routes';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { StandardformComponent } from './standardform/standardform.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsComponent,
     OrdersComponent,
     HomeComponent,
+    StandardformComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     PasswordModule,
     RouterModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+.divider{
+  width:30px;
+  height:auto;
+  display:inline-block;
+}
+.ui-button-raised {
+  width: 200px;
+  font-size: 22px;
+}
+.logoutbutton {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  right: 0;
+}
+.homebutton {
+  position: absolute;
+  width: 50px;
+  top: 0;
+  left: 0;
+}
+.div_container {
+  margin: auto;
+  width: 60%;
+  border: 2px solid dodgerblue;
+  padding: 20px;
+}
