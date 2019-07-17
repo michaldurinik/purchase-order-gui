@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.isSubmitted = true;
     const currentUser = this.findUser(this.loginForm.value.nnumber);
-    console.log(currentUser);
     if (currentUser != null) {
       if (currentUser.password === this.loginForm.value.password) {
         currentUser.authenticate();
