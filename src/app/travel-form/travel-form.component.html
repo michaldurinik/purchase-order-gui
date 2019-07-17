@@ -1,0 +1,54 @@
+<div class travel_container>
+
+  <form [formGroup]="travellerForm" class="travel_container" (ngSubmit)="update()">
+
+    <h1>
+      Add to {{ title }}?
+    </h1>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="travellerName" placeholder="travellerName" formControlName="travellerName">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+      <div *ngIf="formControls.name.errors.required">name is required</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      <input type="travellerNnumber" placeholder="travellerNnumber" formControlName="travellerNnumber">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+      <div *ngIf="formControls.password.errors.required">N Number is required</div>
+    </div>
+
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="hotelName" placeholder="hotelName" formControlName="hotelName">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+      <div *ngIf="formControls.name.errors.required">Hotel name is required</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="departureAirport" placeholder="departureAirport" formControlName="departureAirport">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+      <div *ngIf="formControls.name.errors.required">Departure Airport is required</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="arrivalAirport" placeholder="arrivalAirport" formControlName="arrivalAirport">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+      <div *ngIf="formControls.name.errors.required">Arrival Airport is required</div>
+    </div>
+
+    <p>
+      <input type="submit" value="Add to Form">
+    </p>
+  </form>
+</div>
