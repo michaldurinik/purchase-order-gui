@@ -17,17 +17,34 @@ export class TravelFormComponent implements OnInit {
   isSubmitted = false;
 
   ngOnInit() {
-    this.travellerForm  =  this.formBuilder.group({
+    this.travellerForm = this.formBuilder.group({
       travellerName: ['', Validators.required],
-      travellerNnumber: ['',  Validators.required],
-      hotelName: ['',  Validators.required],
-      departureAirport: ['',  Validators.required],
-      arrivalAirport: ['',  Validators.required],
-    });
+      travellerNnumber: ['', Validators.required],
+      hotelName: ['', Validators.required],
+      hotelCheckIn: ['', Validators.required],
+      hotelCheckOut: ['', Validators.required],
+      hotelCost: ['', Validators.required],
+      hotelAccountUse: ['', Validators.required],
+      flightAirline: ['', Validators.required],
+      departureAirport: ['', Validators.required],
+      arrivalAirport: ['', Validators.required],
+      flightCheckIn: ['', Validators.required],
+      flightCheckOut: ['', Validators.required],
+      flightCost: ['', Validators.required],
+      flightAccountUse: ['', Validators.required]
+      // hotel: new FormGroup({
+      //   hotelName: [''],
+      //   checkIn: [''],
+      //   checkOut: ['']
+      });
+    // });
   }
+
+    // onSubmit() {
+    //   console.log(this.formBuilder.get(['travellerForm', 'hotel']).value);
+    // }
   get formControls() { return this.travellerForm.controls; }
   update() {
     console.log(this.travellerForm.value);
-  }
-}
+  }}
 
