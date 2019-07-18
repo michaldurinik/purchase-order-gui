@@ -11,17 +11,24 @@
   <p class="first">Search for Existing Company
     <input id="input" type="text" size="45" pInputText placeholder="Please enter the company name"></p>
   <h4>OR Add New Company</h4></div>
-  <div class="div_container" style="align-content: center">
-    <p class="first">Company Name</p>
-      <input type="text" size="100" pInputText placeholder="Please enter the company name">
-    <p class="first">Address</p>
-      <input type="text" size="100" pInputText placeholder="Please enter the address">
-    <p class="first">Telephone Number</p>
-      <input type="text" size="100" pInputText placeholder="Please enter the telephone number">
-    <p class="first">Email</p>
-      <input type="email" size="100" pInputText placeholder="Please enter the email">
-    <p><a routerLink="/home">
-      <button pButton type="button" label="NEXT" class="ui-button-raised">
-      </button></a></p>
-  </div>
-<br>
+<div class="div_container" style="align-content: center">
+  <form [formGroup]="form" (ngSubmit)="Submit()">
+  <p for="companyName" class="first">Company Name</p>
+  <input class="form_container" formControlName="companyName" id="companyName" type="text" size="100"
+         pInputText placeholder="Please enter the company name">
+  <p class="first">Address</p>
+  <input class="form_container" formControlName="companyAddress" id="companyAddress" type="text" size="100"
+         pInputText placeholder="Please enter the address">
+  <p class="first">Company Phone Number</p>
+  <input class="form_container" formControlName="companyPhone" id="companyPhone" type="text" size="100"
+         pInputText placeholder="Please enter the telephone number">
+  <p class="first">Email</p>
+  <input class="form_container" formControlName="companyAddress" id="companyEmail" type="email" size="100"
+         pInputText placeholder="Please enter the email">
+   <p><button pButton type="submit" label="NEXT" class="ui-button-raised" style="align-content: end">
+   </button></p>
+
+  </form>
+
+</div>
+

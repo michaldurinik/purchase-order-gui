@@ -6,7 +6,7 @@ import {HomeComponent} from '../home/home.component';
 import {StandardformComponent } from '../standardform/standardform.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'forms', component: FormsComponent },
