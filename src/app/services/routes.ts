@@ -4,7 +4,6 @@ import {FormsComponent} from '../forms/forms.component';
 import {OrdersComponent} from '../orders/orders.component';
 import {HomeComponent} from '../home/home.component';
 
-
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
