@@ -3,7 +3,6 @@ import {LoginComponent} from '../login/login.component';
 import {FormsComponent} from '../forms/forms.component';
 import {OrdersComponent} from '../orders/orders.component';
 import {HomeComponent} from '../home/home.component';
-import {TravelFormComponent} from '../travel-form/travel-form.component';
 
 
 export const appRoutes: Routes = [
@@ -12,6 +11,5 @@ export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'orders', component: OrdersComponent },
-  { path: 'travel-form', component: TravelFormComponent },
   { path: '**', redirectTo: ''},
 ];
