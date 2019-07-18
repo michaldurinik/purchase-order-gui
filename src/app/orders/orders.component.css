@@ -1,0 +1,17 @@
+.open-color {
+  color: #c87e27 !important;
+}
+
+.approved-color {
+  color: #3f7f3f !important;
+}
+
+.rejected-color {
+  background-color: #d0714d !important;
+  color: #000000 !important;
+}
+
+.closed-color {
+  background-color: #b7b7b7 !important;
+  color: #000000 !important;
+}

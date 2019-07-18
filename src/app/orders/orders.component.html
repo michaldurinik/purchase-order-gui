@@ -1,1 +1,39 @@
-<p>orders works!</p>
+<div>
+<a routerLink="/home">
+  <button pButton type="button" icon="pi pi-home" iconPos="left" label="Home" style="float:left"></button></a>
+<a routerLink="/login">
+  <button pButton label="Logout" icon="pi pi-sign-out" iconPos="left" style="float:right"></button></a>
+</div>
+<h1 style="text-align: center">{{title}}</h1>
+
+<p-table #dt [columns]="cols" [value]="orders" [resizableColumns]="true" [paginator]="true" [rows]="15">
+<!--  <ng-template pTemplate="caption">-->
+<!--  <div style="text-align: left">-->
+<!--    <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
+<!--    <input type="text" pInputText size="50" placeholder="Search Po Number" (input)="dt.filterGlobal($event.target, 'contains')" style="width:auto">-->
+<!--  </div>-->
+<!--  </ng-template>-->
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+          {{col.header}}
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+  <ng-template pTemplate="body" let-orders let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns"
+          [ngClass]="orders[col.field] === 'approved' ? 'approved-color':
+                     orders[col.field] === 'rejected' ? 'rejected-color':
+                     orders[col.field] === 'closed' ? 'closed-color':
+                     orders[col.field] === 'open' ? 'open-color':null">
+        {{orders[col.field]}}
+      </td>
+      <button type="button" pButton class="ui-button-raised ui-button-success" icon="pi pi-eye" iconPos="left"
+              label="View Order" style="float:left"></button>
+      <button type="button" pButton icon="pi pi-download" iconPos="left" label="Download CSV" (click)="dt.exportCSV()"
+              style="float:left"></button>
+    </tr>
+  </ng-template>
+</p-table>
