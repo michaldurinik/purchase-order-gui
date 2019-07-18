@@ -8,6 +8,11 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'LIT Purchase Order';
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
   constructor() { }
 
   ngOnInit() {
