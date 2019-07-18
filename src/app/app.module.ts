@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { OverlayPanelModule } from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { TableModule } from 'primeng/table';
     LoginComponent,
     FormsComponent,
     OrdersComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,9 @@ import { TableModule } from 'primeng/table';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    OverlayPanelModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
