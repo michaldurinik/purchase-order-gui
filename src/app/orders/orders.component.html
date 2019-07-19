@@ -1,11 +1,4 @@
-<div>
-<a routerLink="/home">
-  <button pButton type="button" icon="pi pi-home" iconPos="left" label="Home" style="float:left"></button></a>
-<a routerLink="/login">
-  <button pButton label="Logout" icon="pi pi-sign-out" iconPos="left" style="float:right"></button></a>
-</div>
-<h1 style="text-align: center">{{title}}</h1>
-
+<app-navbar></app-navbar>
 <p-table #dt [columns]="cols" [value]="orders" [resizableColumns]="true"
          [paginator]="true" [rows]="15">
   <ng-template pTemplate="caption">

@@ -9,11 +9,11 @@ export class User {
               public type: UserType) {
   }
 
-  public authenticate(): void {
+  authenticate(): void {
     this.isAuthenticated = true;
   }
 
-  logout(): void {
+  deauthenticate(): void {
     this.isAuthenticated = false;
   }
 }
