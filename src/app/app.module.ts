@@ -17,6 +17,7 @@ import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
+import { TravelFormComponent } from './travel-form/travel-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DialogModule } from 'primeng/dialog';
     LoginComponent,
     FormsComponent,
     OrdersComponent,
-    HomeComponent
+    HomeComponent,
+    TravelFormComponent
   ],
   imports: [
     BrowserModule,
