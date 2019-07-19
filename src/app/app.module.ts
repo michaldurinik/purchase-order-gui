@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     TableModule,
     OverlayPanelModule,
+    ReactiveFormsModule,
+    ToastModule,
+    DialogModule,
     BrowserAnimationsModule
   ],
   providers: [],

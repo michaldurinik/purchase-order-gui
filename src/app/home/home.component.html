@@ -3,7 +3,7 @@
   <a routerLink="/login"><button class="logoutbutton" pButton label="Logout"></button></a>
   </div>
   <h1>
-    Welcome to {{ title }}!
+    {{ title }}!
   </h1>
   <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
   <br>
@@ -11,7 +11,14 @@
   </button></a></p>
   <p><a routerLink="/orders"><button pButton type="button" label="Orders" class="ui-button-raised">
   </button></a></p>
-  <p><button pButton type="button" label="Help" class="ui-button-raised"></button></p>
+  <p-dialog header="Help Page" [(visible)]="display">
+    <br>
+    Please go to help yourself desk and search for order forms.
+    <br>
+    alternatively you can watch this youtube video:
+    <br> <a href="https://www.youtube.com/watch?v=uOtdsJKsDc0"></a>
+  </p-dialog>
+  <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Help"></button>
 </div>
 
 
