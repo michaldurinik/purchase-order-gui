@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-travel-form',
   templateUrl: './travel-form.component.html',
@@ -15,6 +13,8 @@ export class TravelFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
   travellerForm: FormGroup;
   isSubmitted = false;
+  public show = false;
+
 
   ngOnInit() {
     this.travellerForm = this.formBuilder.group({
@@ -31,11 +31,19 @@ export class TravelFormComponent implements OnInit {
       flightCheckIn: ['', Validators.required],
       flightCheckOut: ['', Validators.required],
       flightCost: ['', Validators.required],
-      flightAccountUse: ['', Validators.required]
+      flightAccountUse: ['', Validators.required],
+      addCarName: ['', Validators.required],
+      addCarEmail: ['', Validators.required],
+      addCarCompany: ['', Validators.required],
+      addCarAdditional: ['', Validators.required]
     });
   }
   get formControls() { return this.travellerForm.controls; }
+  toggle() {
+    this.show = !this.show;
+  }
   update() {
     console.log(this.travellerForm.value);
-  }}
+  }
+}
 

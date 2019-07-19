@@ -108,6 +108,30 @@
     <p>
       <button pButton input type="submit" value="Add to Form" label = "Add to Form"></button>
    </p>
+      <p>
+        <button pButton type="button" label="Add a Car" class="ui-button-raised" (click)="toggle()">
+        </button>
+      </p>
+
+      <ng-container *ngIf="show">
+        <div style="margin: 0 auto;text-align: center;">
+          <div>
+            <label>Name:</label>
+            <div><input type="addCarName" id="tbname" name="yourname" formControlName="addCarName" /></div>
+          </div>
+          <div>
+            <label>Email Address:</label>
+            <div><input type="addCarEmail" name="email" id="email" formControlName="addCarEmail" /></div></div>
+          <div>
+            <label>Rental Company:</label>
+            <div><input type="addCarCompany" name="companyName" id="companyName" formControlName="addCarCompany" /></div>
+          </div>
+          <div>
+            <label>Additional Information (optional):</label>
+            <div><textarea type="addCarAdditional" rows="5" cols="46" formControlName="addCarAdditional"></textarea></div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </form>
 
