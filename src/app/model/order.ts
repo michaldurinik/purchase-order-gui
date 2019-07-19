@@ -1,4 +1,4 @@
-export interface Orders {
+export interface Order {
   poNumber: number;
   date: string;
   subDepartment: string;

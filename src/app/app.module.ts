@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { OverlayPanelModule } from 'primeng/primeng';
+import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    ButtonModule,
+    ButtonModule, SplitButtonModule,
     InputTextModule,
     PasswordModule,
     RouterModule,

@@ -6,15 +6,15 @@
 </div>
 <h1 style="text-align: center">{{title}}</h1>
 
-
 <p-table #dt [columns]="cols" [value]="orders" [resizableColumns]="true"
          [paginator]="true" [rows]="15">
-<!--  <ng-template pTemplate="caption">-->
-<!--  <div style="text-align: left">-->
-<!--    <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
-<!--    <input type="text" pInputText size="50" placeholder="Search Po Number" (input)="dt.filterGlobal($event.target, 'contains')" style="width:auto">-->
-<!--  </div>-->
-<!--  </ng-template>-->
+  <ng-template pTemplate="caption">
+  <div style="text-align: left">
+    <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+    <input type="text" pInputText size="50" placeholder="Search Po Number"
+           (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+  </div>
+  </ng-template>
   <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
@@ -37,8 +37,10 @@
       <p-overlayPanel #op [showCloseIcon]="false">
         <img src="../../assets/img/sample-form.png" alt="Order preview" />
       </p-overlayPanel>
+      <p-splitButton label="Actions" icon="pi pi-cog" [model]="actionMenu" styleClass="ui-button-secondary"
+                     ></p-splitButton>
       <button type="button" pButton class="ui-button-raised ui-button-success" icon="pi pi-download" iconPos="left"
-              label="CSV" (click)="dt.exportCSV()" style="float:left"></button>
+              label="CSV" (click)="dt.exportCSV()"></button>
     </tr>
   </ng-template>
 </p-table>
