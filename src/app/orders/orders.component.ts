@@ -2,7 +2,6 @@ import { Component, Injectable, OnInit} from '@angular/core';
 import { Order } from '../model/order';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'primeng/api';
-import {User} from '../model/user';
 
 @Component({
   selector: 'app-orders',
