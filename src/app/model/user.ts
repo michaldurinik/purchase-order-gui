@@ -5,11 +5,11 @@ export enum UserType {
 }
 
 export class User {
-  constructor(public nnumber: string, private password: string, public name: string, private isAuthenticated = false,
+  constructor(public nnumber: string, public password: string, public name: string, public isAuthenticated = false,
               public type: UserType) {
   }
 
-  private authenticate(): void {
+  public authenticate(): void {
     this.isAuthenticated = true;
   }
 

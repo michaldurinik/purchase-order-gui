@@ -12,7 +12,11 @@ import { appRoutes } from './services/routes';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TravelFormComponent} from './travel-form/travel-form.component';
+import { TableModule } from 'primeng/table';
+import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -20,19 +24,24 @@ import {TravelFormComponent} from './travel-form/travel-form.component';
     LoginComponent,
     FormsComponent,
     OrdersComponent,
-    HomeComponent,
-    TravelFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    ButtonModule,
+    ButtonModule, SplitButtonModule,
     InputTextModule,
     PasswordModule,
     RouterModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    OverlayPanelModule,
+    ReactiveFormsModule,
+    ToastModule,
+    DialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

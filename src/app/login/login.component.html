@@ -1,24 +1,21 @@
 <div class="login_container">
-  <h1>
+  <h2>
     Login to {{ title }}!
-  </h1>
+  </h2>
   <img width="250" alt="LIT Logo" src="assets/img/lit_logo.jpg"><br>
-<!--  <br>-->
-<!--  <p>Username  <input type="text" size="30" pInputText placeholder="N-number" tabindex="1"></p>-->
-<!--  <p>Password  <input type="password" size="30" pInputText placeholder="Password" tabindex="2"></p>-->
-<!--  <br><a routerLink="/home"><button onclick="alert('Welcome to LIT Purchase Order !')" pButton type="button" label="Login" class="ui-button-raised"></button></a>-->
+
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
 
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-      <input type="nNumber" placeholder="nNumber" formControlName="nnumber">
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.nnumber.errors }">
+      <input type="nNumber" size="30" pInputText placeholder="nNumber" tabindex="1" formControlName="nnumber">
     </p>
 
-    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
-      <div *ngIf="formControls.name.errors.required">name is required</div>
+    <div *ngIf="isSubmitted && formControls.nnumber.errors" class="help-block">
+      <p *ngIf="formControls.nnumber.errors.required">name is required</p>
     </div>
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-      <input type="password" placeholder="Password" formControlName="password">
+      <input type="password" size="30" pInputText placeholder="Password" tabindex="2" formControlName="password">
     </p>
 
     <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
@@ -26,7 +23,7 @@
     </div>
 
     <p>
-      <input type="submit" value="Log in">
+      <button pButton type="submit" label="Log in" class="ui-button-raised ui-button-info" tabindex="3"></button>
     </p>
   </form>
 
