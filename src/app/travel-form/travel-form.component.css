@@ -1,3 +1,27 @@
 .travel_container{
+  text-align: left;
+}
+.hotel-form{
+  position: absolute;
+  top: 50px;
+  right: 10px;
+}
+.flight-container{
   text-align: center;
+  width: 100%;
+}
+.title{
+  text-align: center;
+}
+.logoutbutton {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  right: 0;
+}
+.homebutton {
+  position: absolute;
+  width: 50px;
+  top: 0;
+  left: 0;
 }

@@ -32,17 +32,8 @@ export class TravelFormComponent implements OnInit {
       flightCheckOut: ['', Validators.required],
       flightCost: ['', Validators.required],
       flightAccountUse: ['', Validators.required]
-      // hotel: new FormGroup({
-      //   hotelName: [''],
-      //   checkIn: [''],
-      //   checkOut: ['']
-      });
-    // });
+    });
   }
-
-    // onSubmit() {
-    //   console.log(this.formBuilder.get(['travellerForm', 'hotel']).value);
-    // }
   get formControls() { return this.travellerForm.controls; }
   update() {
     console.log(this.travellerForm.value);
