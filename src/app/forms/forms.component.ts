@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Suppliers } from '../model/supplier-details';
 import { HttpClient } from '@angular/common/http';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-forms',
@@ -8,15 +9,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./forms.component.css']
 })
 
-export class FormsComponent {
-  title = 'LIT Purchase Orders - FORMS';
+export class FormsComponent implements OnInit {
+  title = 'Purchase Orders - FORMS';
   suppliers: Suppliers[];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private navbarService: NavbarService) {
     this.suppliers = [];
 
     this.http.get<Suppliers[]>('assets/data/suppliers.json')
       .subscribe(company => this.suppliers = company);
+  }
+
+  ngOnInit() {
+    this.navbarService.setTitle(this.title);
   }
 
   showSuppliers() {

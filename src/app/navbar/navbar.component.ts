@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,14 @@ import { LoginComponent } from '../login/login.component';
 })
 export class NavbarComponent implements OnInit {
   loginComponent: LoginComponent;
-  title = 'Title of the page';
+  title = '';
 
-  constructor() { }
+  constructor(private navbarService: NavbarService) { }
 
   ngOnInit() {
+    this.navbarService.title.subscribe(updatedTitle => {
+      this.title = updatedTitle;
+    });
   }
 
   logout() {
