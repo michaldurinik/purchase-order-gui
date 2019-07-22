@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { TravelFormComponent } from './travel-form/travel-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarService } from './services/navbar.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TravelFormComponent } from './travel-form/travel-form.component';
     FormsComponent,
     OrdersComponent,
     HomeComponent,
-    TravelFormComponent
+    TravelFormComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { TravelFormComponent } from './travel-form/travel-form.component';
     DialogModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

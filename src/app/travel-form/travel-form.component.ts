@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-travel-form',
@@ -10,13 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TravelFormComponent implements OnInit {
   title = 'Travel Form';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private navbarService: NavbarService) {}
   travellerForm: FormGroup;
   isSubmitted = false;
   public show = false;
 
 
   ngOnInit() {
+    this.navbarService.setTitle(this.title);
     this.travellerForm = this.formBuilder.group({
       travellerName: ['', Validators.required],
       travellerNnumber: ['', Validators.required],
