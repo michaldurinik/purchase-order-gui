@@ -10,6 +10,7 @@ import { NavbarService } from '../services/navbar.service';
 export class NavbarComponent implements OnInit {
   loginComponent: LoginComponent;
   title = '';
+  currentUser = 'john.doe@gmail.com';
 
   constructor(private navbarService: NavbarService) { }
 
