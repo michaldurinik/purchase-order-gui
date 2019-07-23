@@ -20,6 +20,7 @@ import { DialogModule } from 'primeng/dialog';
 import { TravelFormComponent } from './travel-form/travel-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarService } from './services/navbar.service';
+import { OrdersHttpService } from './services/orders.http.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { NavbarService } from './services/navbar.service';
     DialogModule,
     BrowserAnimationsModule
   ],
-  providers: [NavbarService],
+  providers: [NavbarService, OrdersHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
