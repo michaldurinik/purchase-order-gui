@@ -3,6 +3,7 @@ import { Order } from '../model/order';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'primeng/api';
 import { NavbarService } from '../services/navbar.service';
+import { OrdersHttpService } from '../services/orders.http.service';
 
 @Component({
   selector: 'app-orders',
@@ -17,10 +18,10 @@ export class OrdersComponent implements OnInit {
   cols: any[];
   actionMenu: MenuItem[];
 
-  constructor(private http: HttpClient, private navbarService: NavbarService) {
+  constructor(private http: HttpClient,
+              private navbarService: NavbarService, private httpService: OrdersHttpService) {
     this.orders = [];
-    this.http.get<Order[]>('assets/data/orders.json')
-      .subscribe(data => this.orders = data);
+    this.getOrders();
   }
 
   ngOnInit() {
@@ -47,6 +48,11 @@ export class OrdersComponent implements OnInit {
           this.close();
         }},
     ];
+  }
+
+  getOrders() {
+    this.httpService.getAllOrders()
+      .subscribe(data => this.orders = data);
   }
 
   getCurrentPO(poNumber): Order {
