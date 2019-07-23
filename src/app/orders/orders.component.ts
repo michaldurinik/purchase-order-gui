@@ -3,7 +3,7 @@ import { Order } from '../model/order';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'primeng/api';
 import { NavbarService } from '../services/navbar.service';
-import { OrdersHttpService } from '../services/orders.http.service';
+import { OrdersService } from '../services/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -19,7 +19,7 @@ export class OrdersComponent implements OnInit {
   actionMenu: MenuItem[];
 
   constructor(private http: HttpClient,
-              private navbarService: NavbarService, private httpService: OrdersHttpService) {
+              private navbarService: NavbarService, private ordersService: OrdersService) {
     this.orders = [];
     this.getOrders();
   }
@@ -51,7 +51,7 @@ export class OrdersComponent implements OnInit {
   }
 
   getOrders() {
-    this.httpService.getAllOrders()
+    this.ordersService.getAllOrders()
       .subscribe(data => this.orders = data);
   }
 
