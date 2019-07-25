@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './services/routes';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StandardformComponent } from './standardform/standardform.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
@@ -19,6 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { TravelFormComponent } from './travel-form/travel-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarService } from './services/navbar.service';
+import { OrdersHttpService} from './services/orders.http.service';
+import { OrdersService } from './services/orders.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,7 @@ import { TravelFormComponent } from './travel-form/travel-form.component';
     DialogModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [NavbarService, { provide: OrdersService, useClass: OrdersHttpService } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

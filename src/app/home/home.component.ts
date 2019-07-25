@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,14 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'LIT Purchase Order';
-  display: boolean = false;
+  display = false;
 
   showDialog() {
     this.display = true;
   }
-  constructor() { }
+  constructor(private navbarService: NavbarService) { }
 
   ngOnInit() {
+    this.navbarService.setTitle(this.title);
   }
 }

@@ -2,6 +2,8 @@ import { Component, Injectable, OnInit} from '@angular/core';
 import { Order } from '../model/order';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'primeng/api';
+import { NavbarService } from '../services/navbar.service';
+import { OrdersService } from '../services/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -16,14 +18,14 @@ export class OrdersComponent implements OnInit {
   cols: any[];
   actionMenu: MenuItem[];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private navbarService: NavbarService, private ordersService: OrdersService) {
     this.orders = [];
-
-    this.http.get<Order[]>('assets/data/orders.json')
-      .subscribe(data => this.orders = data);
+    this.getOrders();
   }
 
   ngOnInit() {
+    this.navbarService.setTitle(this.title);
     this.cols = [
       {field: 'poNumber', header: 'PO number'},
       {field: 'date', header: 'Date'},
@@ -46,6 +48,11 @@ export class OrdersComponent implements OnInit {
           this.close();
         }},
     ];
+  }
+
+  getOrders() {
+    this.ordersService.getAllOrders()
+      .subscribe(data => this.orders = data);
   }
 
   getCurrentPO(poNumber): Order {

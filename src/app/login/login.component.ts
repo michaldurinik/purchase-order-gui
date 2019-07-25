@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   get formControls() { return this.loginForm.controls; }
 
-  findUser(nnumber): User {
+  getUser(nnumber): User {
     for (const user of this.userList) {
       if (user.nnumber === nnumber) {
         return user;
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.isSubmitted = true;
-    const currentUser = this.findUser(this.loginForm.value.nnumber);
+    const currentUser = this.getUser(this.loginForm.value.nnumber);
     if (currentUser != null) {
       if (currentUser.password === this.loginForm.value.password) {
         currentUser.authenticate();
@@ -56,5 +56,10 @@ export class LoginComponent implements OnInit {
     if (currentUser.isAuthenticated) {
       this.router.navigateByUrl('/home');
     }
+  }
+
+  logout() {
+    this.getUser(this.loginForm.value.nnumber).deauthenticate();
+    this.router.navigateByUrl('/login');
   }
 }
