@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this.getUser(this.loginForm.value.nnumber).deauthenticate();
+    this.getUser(this.loginForm.value.nnumber).authenticate();
     this.router.navigateByUrl('/login');
   }
 }

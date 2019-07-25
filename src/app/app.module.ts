@@ -22,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarService } from './services/navbar.service';
 import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
+import { StandardformComponent } from './standardform/standardform.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrdersService } from './services/orders.service';
     OrdersComponent,
     HomeComponent,
     StandardformComponent,
-    TravelFormComponent
+    TravelFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
