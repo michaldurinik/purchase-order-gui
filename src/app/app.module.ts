@@ -23,6 +23,7 @@ import { NavbarService } from './services/navbar.service';
 import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
+import { DefaultFormComponent } from './default-form/default-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StandardformComponent } from './standardform/standardform.component';
     HomeComponent,
     StandardformComponent,
     TravelFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    DefaultFormComponent
   ],
   imports: [
     BrowserModule,

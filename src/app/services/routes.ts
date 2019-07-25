@@ -5,6 +5,7 @@ import {OrdersComponent} from '../orders/orders.component';
 import {HomeComponent} from '../home/home.component';
 import {StandardformComponent } from '../standardform/standardform.component';
 import {TravelFormComponent} from '../travel-form/travel-form.component';
+import {DefaultFormComponent} from '../default-form/default-form.component';
 
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -14,5 +15,6 @@ export const appRoutes: Routes = [
   { path: 'orders', component: OrdersComponent },
   { path: 'standardform', component: StandardformComponent },
   { path: 'travel-form', component: TravelFormComponent },
+  { path: 'default-form', component: DefaultFormComponent },
   { path: '**', redirectTo: ''},
 ];
