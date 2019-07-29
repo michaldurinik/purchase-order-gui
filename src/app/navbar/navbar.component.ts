@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { NavbarService } from '../services/navbar.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ export class NavbarComponent implements OnInit {
   loginComponent: LoginComponent;
   title = '';
   currentUser = 'john.doe@gmail.com';
+  authenticationService: AuthenticationService;
 
   constructor(private navbarService: NavbarService) { }
 
@@ -21,6 +23,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.loginComponent.logout();
+    this.authenticationService.logout();
   }
 }

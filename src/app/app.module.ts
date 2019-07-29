@@ -24,6 +24,7 @@ import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { DefaultFormComponent } from './default-form/default-form.component';
     StandardformComponent,
     TravelFormComponent,
     NavbarComponent,
-    DefaultFormComponent
+    DefaultFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,7 @@ import { DefaultFormComponent } from './default-form/default-form.component';
     DialogModule,
     BrowserAnimationsModule
   ],
-  providers: [NavbarService, { provide: OrdersService, useClass: OrdersHttpService } ],
+  providers: [NavbarService, AuthenticationService, { provide: OrdersService, useClass: OrdersHttpService } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
