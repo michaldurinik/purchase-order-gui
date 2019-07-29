@@ -13,11 +13,8 @@
   top: 0;
   right: 0;
 }
-.homebutton {
-  position: absolute;
-  width: 50px;
-  top: 0;
-  left: 0;
+.form-icons {
+  width: 500px;
 }
 .div_container {
   margin: auto;
@@ -33,4 +30,12 @@
   width: 80%;
   border: 2px solid dodgerblue;
   padding: 5px;
+}
+
+.form_container_2 {
+  margin: auto;
+  position: static;
+  width: 100%;
+  border: 2px solid dodgerblue;
+  padding: 2px;
 }

@@ -13,7 +13,7 @@
     <input id="input" type="text" size="45" pInputText placeholder="Please enter the company name"></p>
   <h4>OR Add New Company</h4></div>
 <div class="div_container" style="align-content: center">
-  <form [formGroup]="form" (ngSubmit)="Submit()">
+  <form [formGroup]="standardForm" (ngSubmit)="Submit()">
   <p for="companyName" class="first">Company Name</p>
   <input class="form_container" formControlName="companyName" id="companyName" type="text" size="100"
          pInputText placeholder="Please enter the company name">
@@ -30,6 +30,65 @@
    </button></p>
 
   </form>
+  <!--<form [formGroup]="form2" {ngSubmit}=""-->
+  <!--<form [formGroup]="purchaseOrder">-->
+  <table>
+    <thead>
+    <tr>
+      <th>Account Use</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Cost</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let field of fieldArray; let i = index">
+      <td>
+        <input [(ngModel)]="field.accountUse" class="form_container_2" type="text" name="{{field.accountUse}}" />
+      </td>
+      <td>
+        <input [(ngModel)]="field.quantity" class="form_container_2" type="text" name="{{field.quantity}}" />
+      </td>
+      <td>
+        <input [(ngModel)]="field.description" class="form_container_2" type="text" name="{{field.description}}" />
+      </td>
+      <td>
+        <input [(ngModel)]="field.cost" class="form_container_2" type="text" name="{{field.cost}}" />
+      </td>
+      <td>
+        <input [(ngModel)]="field.total" class="form_container_2" type="text" name="{{field.total}}" />
+      </td>
+      <td>
+        <!--<button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>-->
+        <p-button label="Delete" styleClass="ui-button-danger" (click)="deleteFieldValue(i)"></p-button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input class="form_container_2" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.accountUse" name="newAttributeAccountUse" />
+      </td>
+      <td>
+        <input class="form_container_2" type="text" id="newAttributeQuantity" [(ngModel)]="newAttribute.quantity" name="newAttributeQuantity" />
+      </td>
+      <td>
+        <input class="form_container_2" type="text" id="newAttributeDescription" [(ngModel)]="newAttribute.description" name="newAttributeDescription" />
+      </td>
+      <td>
+        <input class="form_container_2" type="text" id="newAttributeCost" [(ngModel)]="newAttribute.cost" name="newAttributeCost" />
+      </td>
+      <td>
+        <input class="form_container_2" type="text" id="newAttributeTotal" [(ngModel)]="newAttribute.total" name="newAttributeTotal" />
+      </td>
+      <td>
+        <!--<button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>-->
+        <p-button label="Add" (click)="addFieldValue()"></p-button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p><button pButton type="submit" label="TEST" class="ui-button-raised" style="align-content: end">
+  </button></p>
 
 </div>
 

@@ -6,20 +6,31 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
   templateUrl: './standardform.component.html',
   styleUrls: ['./standardform.component.css'],
 })
-export class StandardformComponent  {
-  form: FormGroup;
+export class StandardformComponent {
+  standardForm: FormGroup;
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
 
   constructor(private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      companyName: ['', Validators.required],
-      companyAddress: ['', Validators.required],
-      companyPhone: ['', Validators.required],
-      companyEmail: ['', Validators.required],
-
+    this.standardForm = this.formBuilder.group({
+        companyName: ['', Validators.required],
+        companyAddress: ['', Validators.required],
+        companyPhone: ['', Validators.required],
+        companyEmail: ['', Validators.required]
     });
   }
+
   Submit() {
-    console.log(this.form.value);
+    console.log(this.standardForm.value);
+  }
+
+  addFieldValue() {
+    this.fieldArray.push(this.newAttribute)
+    this.newAttribute = {};
+  }
+
+  deleteFieldValue(index) {
+    this.fieldArray.splice(index, 1);
   }
 }
 
