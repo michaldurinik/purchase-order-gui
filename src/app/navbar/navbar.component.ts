@@ -12,9 +12,8 @@ export class NavbarComponent implements OnInit {
   loginComponent: LoginComponent;
   title = '';
   currentUser = 'john.doe@gmail.com';
-  authenticationService: AuthenticationService;
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.navbarService.title.subscribe(updatedTitle => {
