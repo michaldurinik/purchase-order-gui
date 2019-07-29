@@ -2,110 +2,269 @@
 
 <form [formGroup]="defaultForm" class="" (ngSubmit)="update()">
   <div class travel_container>
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="text" placeholder="currency" formControlName="Currency">
+    </p>
+    <h2>
+      Order
+    </h2>
+    <div formGroupName="order">
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+        <input type="number" placeholder="Purchase Order Number" formControlName="purchaseOrderNo">
+      </p>
+
+      <p>Purchase Order Date</p>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="date" placeholder="Purchase Order Date" formControlName="purchaseOrderDate">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Requester N-number" formControlName="requesterNnumber">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Requester Name" formControlName="requesterName">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Purchase Order Location" formControlName="purchaseOrderLocation">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Authorised By" formControlName="authorisedBy">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Unit Name" formControlName="unitName">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Name of SDL" formControlName="nameSDL">
+      </p>
+
+      <br>
+      <br>
+    </div>
+    <h2>
+      Company
+    </h2>
+
+    <div formGroupName="company">
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+        <input type="text" placeholder="Company Name" formControlName="companyName">
+      </p>
+
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="text" placeholder="Company Address" formControlName="companyAddress">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="tel" placeholder="Company Phone Number" formControlName="companyPhoneNumber">
+      </p>
+
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="email" placeholder="Company Email" formControlName="companyEmail">
+      </p>
+
+      <br>
+      <br>
+
+    </div>
     <h2>
       Traveller Details
     </h2>
-    <div formGroupName="traveller">
-      <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-        <input type="travellerName" placeholder="Traveller Name" formControlName="travellerName">
-      </p>
-
-
-      <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-      <!--      <div *ngIf="formControls.name.errors.required">name is required</div>-->
-      <!--    </div>-->
-
-      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-        <input type="travellerNnumber" placeholder="Traveller N-Number" formControlName="travellerNnumber">
-      </p>
-
-      <br>
-      <br>
-
-
-      <!--    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">-->
-      <!--      <div *ngIf="formControls.password.errors.required">N Number is required</div>-->
-      <!--    </div>-->
-
-      <h2>
-        Hotel Details
-      </h2>
-      <div formGroupName="hotel">
+    <div formArrayName="traveller" *ngFor="let items of traveller.controls;let k = index" >
+      <div [formGroupName]="k">
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="hotelName" placeholder="Hotel Name" formControlName="hotelName">
+          <input type="text" placeholder="Traveller Name" formControlName="travellerName">
         </p>
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="hotelCheckIn" placeholder="Hotel Check In" formControlName="hotelCheckIn">
-        </p>
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="hotelCheckOut" placeholder="Hotel Check Out" formControlName="hotelCheckOut">
-        </p>
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="hotelCost" placeholder="Hotel Cost" formControlName="hotelCost">
-        </p>
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="hotelAccountUse" placeholder="Account Use" formControlName="hotelAccountUse">
-        </p>
-      </div>
-      <br>
-      <br>
 
-      <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-      <!--      <div *ngIf="formControls.name.errors.required">Hotel name is required</div>-->
-      <!--    </div>-->
+
+        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
+        <!--      <div *ngIf="formControls.name.errors.required">name is required</div>-->
+        <!--    </div>-->
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+          <input type="text" placeholder="Traveller N-Number" formControlName="travellerNnumber">
+        </p>
+
+        <br>
+        <br>
+
+
+        <!--    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">-->
+        <!--      <div *ngIf="formControls.password.errors.required">N Number is required</div>-->
+        <!--    </div>-->
+
+        <h2>
+          Hotel Details
+        </h2>
+        <div formGroupName="hotel">
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Hotel Name" formControlName="hotelName">
+          </p>
+          <p>Hotel Check In</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Hotel Check In" formControlName="hotelCheckIn">
+          </p>
+          <p>Hotel Check Out</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Hotel Check Out" formControlName="hotelCheckOut">
+          </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="number" placeholder="Hotel Cost" formControlName="hotelCost">
+          </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Account Use" formControlName="hotelAccountUse">
+          </p>
+        </div>
+        <br>
+        <br>
+
+        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
+        <!--      <div *ngIf="formControls.name.errors.required">Hotel name is required</div>-->
+        <!--    </div>-->
 
         <h2>
           Flight Details
         </h2>
-      <div formGroupName="flight">
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="flightAirline" placeholder="Airline Name" formControlName="flightAirline" class=flight-container>
-        </p>
+        <div formGroupName="flight">
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Airline Name" formControlName="flightAirline" class=flight-container>
+          </p>
 
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="departureAirport" placeholder="Departure Airport" formControlName="departureAirport"
-                 class=flight-container>
-        </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Departure Airport" formControlName="departureAirport"
+                   class=flight-container>
+          </p>
 
-        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-        <!--      <div *ngIf="formControls.name.errors.required">Departure Airport is required</div>-->
-        <!--    </div>-->
+          <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
+          <!--      <div *ngIf="formControls.name.errors.required">Departure Airport is required</div>-->
+          <!--    </div>-->
 
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="arrivalAirport" placeholder="Arrival Airport" formControlName="arrivalAirport"
-                 class=flight-container>
-        </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Arrival Airport" formControlName="arrivalAirport"
+                   class=flight-container>
+          </p>
 
-        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-        <!--      <div *ngIf="formControls.name.errors.required">Arrival Airport is required</div>-->
-        <!--    </div>-->
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="flightCheckIn" placeholder="Flight Check In" formControlName="flightCheckIn"
-                 class=flight-container>
-        </p>
+          <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
+          <!--      <div *ngIf="formControls.name.errors.required">Arrival Airport is required</div>-->
+          <!--    </div>-->
+          <p>Flight Check In</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Flight Check In" formControlName="flightCheckIn"
+                   class=flight-container>
+          </p>
+          <p>Flight Check Out</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Flight Check Out" formControlName="flightCheckOut"
+                   class=flight-container>
+          </p>
 
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="flightCheckOut" placeholder="Flight Check Out" formControlName="flightCheckOut"
-                 class=flight-container>
-        </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="number" placeholder="Flight Cost" formControlName="flightCost" class=flight-container>
+          </p>
 
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="flightCost" placeholder="Flight Cost" formControlName="flightCost" class=flight-container>
-        </p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Account Use" formControlName="flightAccountUse"
+                   class=flight-container>
+          </p>
 
-        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-          <input type="flightAccountUse" placeholder="Account Use" formControlName="flightAccountUse"
-                 class=flight-container>
-        </p>
+        </div>
+        <h2>
+          Car
+        </h2>
+        <div formGroupName="car">
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Add Car Name" formControlName="addCarName">
+          </p>
+          <p>Add Car Collection Date</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Add Car Collection Date" formControlName="addCarCollectionDate">
+          </p>
+          <p>Add Car Return Date</p>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="date" placeholder="Add Car Return Date" formControlName="addCarReturnDate">
+          </p>
+
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="number" placeholder="Add Car Price Per Day" formControlName="addCarPricePerDay">
+          </p>
+        </div>
       </div>
-
-        <p>
-          <button pButton input type="submit" value="Add to Form" label="Add to Form"></button>
+      <button type="button" (click)="addTraveller()">
+        add another Traveller
+      </button>
+    </div>
+    <h2>
+      Course
+    </h2>
+    <div formArrayName="course" *ngFor="let courses of course.controls;let j = index">
+      <div [formGroupName]="j">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="text" placeholder="Name Course" formControlName="nameCourse">
+        </p>
+        <p>Date Course Start</p>
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="date" placeholder="Date Course Start" formControlName="dateCourseStart">
         </p>
 
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="number" placeholder="Course Duration" formControlName="courseDuration">
+        </p>
 
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="text" placeholder="Course Location" formControlName="courseLocation">
+        </p>
 
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="text" placeholder="directorName" formControlName="directorName">
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="number" placeholder="Course Price" formControlName="coursePrice">
+        </p>
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="number" placeholder="Amount of people Attending" formControlName="amountAttending">
+        </p>
+        <p>Does price include hotel
+
+          <input type="checkbox" [checked]="false" placeholder="Includes Hotel" formControlName="priceIncludeHotel">
+
+        </p>
+        <button type="button" [disabled]="!course.valid" (click)="addCourse()">
+          add another course
+        </button>
+      </div>
     </div>
+    <h2>
+      Item
+    </h2>
+    <div formArrayName="item" *ngFor="let items of item.controls;let i = index">
+
+      <div [formGroupName]="i">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="number" placeholder="Item Quantity" formControlName="itemQuantity">
+        </p>
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="text" placeholder="Item Description" formControlName="itemDescription">
+        </p>
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <input type="number" placeholder="Item Price Per Unit" formControlName="itemPricePerUnit">
+        </p>
+        <button type="button" [disabled]="!item.valid" (click)="addItem()">
+          add another item
+        </button>
+      </div>
+    </div>
+    <p>
+      <button pButton input type="submit" value="Add to Form" label="Add to Form"></button>
+    </p>
+
+
   </div>
+
 </form>
 
