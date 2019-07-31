@@ -24,6 +24,7 @@ import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
+import { DropdownModule } from 'primeng/dropdown';
 import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
@@ -38,7 +39,7 @@ import { SuppliersHttpService } from './services/suppliers.http.service';
     StandardformComponent,
     TravelFormComponent,
     NavbarComponent,
-    DefaultFormComponent
+    DefaultFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,8 @@ import { SuppliersHttpService } from './services/suppliers.http.service';
     ReactiveFormsModule,
     ToastModule,
     DialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DropdownModule
   ],
   providers: [
     NavbarService,

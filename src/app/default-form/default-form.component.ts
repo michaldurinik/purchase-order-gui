@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { NavbarService } from '../services/navbar.service';
 import { SuppliersService } from '../services/suppliers.service';
@@ -64,6 +64,24 @@ export class DefaultFormComponent implements OnInit {
   }
   addItem(): void {
     this.item.push(this.buildItems());
+  }
+  removeItem(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.item.length > 1) {
+      this.item.removeAt(index);
+    }
+  }
+  removeTraveller(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.traveller.length > 1) {
+      this.traveller.removeAt(index);
+    }
+  }
+  removeCourse(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.course.length > 1) {
+      this.course.removeAt(index);
+    }
   }
   addCourse(): void {
     this.course.push(this.buildCourses());
