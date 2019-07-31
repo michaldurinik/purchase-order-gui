@@ -24,10 +24,10 @@ import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
+import { DropdownModule } from 'primeng/dropdown';
 import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
-import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { DropdownModule } from 'primeng/dropdown';
     StandardformComponent,
     TravelFormComponent,
     NavbarComponent,
-    DefaultFormComponent
+    DefaultFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +56,15 @@ import { DropdownModule } from 'primeng/dropdown';
     ReactiveFormsModule,
     ToastModule,
     DialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DropdownModule
   ],
-  providers: [NavbarService, { provide: OrdersService, useClass: OrdersHttpService } ],
+  providers: [
+    NavbarService,
+    AuthenticationService,
+    { provide: OrdersService, useClass: OrdersHttpService },
+    { provide : SuppliersService, useClass: SuppliersHttpService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
