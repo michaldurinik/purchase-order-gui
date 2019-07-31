@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { LoginComponent } from './login/login.component';
-import { FormsComponent } from './forms/forms.component';
+import { FormsComponent } from './forms-home/forms.component';
 import { OrdersComponent } from './orders/orders.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './services/routes';

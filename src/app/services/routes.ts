@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
-import {FormsComponent} from '../forms/forms.component';
+import {FormsComponent} from '../forms-home/forms.component';
 import {OrdersComponent} from '../orders/orders.component';
 import {HomeComponent} from '../home/home.component';
 import {StandardformComponent } from '../standardform/standardform.component';
