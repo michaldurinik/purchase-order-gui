@@ -191,12 +191,15 @@
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="number" placeholder="Add Car Price Per Day" formControlName="addCarPricePerDay">
           </p>
+          <button type="button" (click)="removeTraveller(k)">
+            Remove another item
+          </button>
         </div>
       </div>
-      <button type="button" (click)="addTraveller()">
-        add another Traveller
-      </button>
     </div>
+    <button type="button" (click)="addTraveller()">
+      add another Traveller
+    </button>
     <h2>
       Course
     </h2>
@@ -232,11 +235,15 @@
           <input type="checkbox" [checked]="false" placeholder="Includes Hotel" formControlName="priceIncludeHotel">
 
         </p>
-        <button type="button" [disabled]="!course.valid" (click)="addCourse()">
-          add another course
+        <button type="button" (click)="removeCourse(j)">
+          Remove another item
         </button>
+
       </div>
     </div>
+    <button type="button" [disabled]="!course.valid" (click)="addCourse()">
+      add another course
+    </button>
     <h2>
       Item
     </h2>
@@ -254,11 +261,16 @@
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
           <input type="number" placeholder="Item Price Per Unit" formControlName="itemPricePerUnit">
         </p>
-        <button type="button" [disabled]="!item.valid" (click)="addItem()">
-          add another item
+
+        <button type="button" (click)="removeItem(i)">
+          Remove another item
         </button>
       </div>
+
     </div>
+    <button [disabled]="!item.valid" type="button" (click)="addItem()">
+      add another item
+    </button>
     <p>
       <button pButton input type="submit" value="Add to Form" label="Add to Form"></button>
     </p>
