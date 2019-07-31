@@ -1,0 +1,41 @@
+.container{
+  text-align: center;
+  width:100%;
+  height: 100%;
+}
+.main_holder{
+  display: inline-block;
+}
+.column {
+  float: left;
+  width:50%;
+  padding: 5%;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+
+}
+.form_images{
+  width: 100%;
+  height: 80%;
+  border-radius: 5%;
+}
+.ui-button-raised{
+  width: 100%;
+  font-size: 22px;
+}
+.logoutbutton {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  right: 0;
+}
+.homebutton {
+  position: absolute;
+  width: 50px;
+  top: 0;
+  left: 0;
+}
