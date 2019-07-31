@@ -6,20 +6,41 @@
   <!--<h1>
     {{ title }}!
   </h1>-->
-  <img width="250" alt="LIT Logo" src="assets/img/lit_logo2.png"><br>
+
+  <img class="Liberty_image" alt="LIT Logo" src="assets/img/lit_logo2.png"><br>
   <br>
-  <p><a routerLink="/forms"><button pButton type="button" label="Forms" class="ui-button-raised">
-  </button></a></p>
-  <p><a routerLink="/orders"><button pButton type="button" label="Orders" class="ui-button-raised">
-  </button></a></p>
-  <p-dialog header="Help Page" [(visible)]="display">
-    <br>
-    Please go to help yourself desk and search for order forms.
-    <br>
-    alternatively you can watch this youtube video:
-    <br> <a href="https://www.youtube.com/watch?v=uOtdsJKsDc0"></a>
-  </p-dialog>
-  <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Help"></button>
+  <div class="home_container">
+    <div class="home_holder">
+      <div class="home_row">
+        <div class="home_column">
+          <a routerLink="/forms">
+            <img class="form_images" src="../../assets/img/form.png"/>
+            <button pButton type="button" label="Forms" class="ui-button-raised">
+            </button>
+          </a>
+        </div>
+        <div class="home_column">
+          <a routerLink="/orders">
+            <img class="form_images" src="../../assets/img/form.png"/>
+            <button pButton type="button" label="Orders" class="ui-button-raised">
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <p-dialog header="Help Page" [(visible)]="display">
+      <br>
+      Please go to help yourself desk and search for order forms.
+      <br>
+      alternatively you can watch this youtube video:
+      <br> <a href="https://www.youtube.com/watch?v=uOtdsJKsDc0"></a>
+    </p-dialog>
+    <button class="Help_button" type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Help"></button>
+  </div>
 </div>
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { NavbarService } from '../services/navbar.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   title = '';
   currentUser = 'john.doe@gmail.com';
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.navbarService.title.subscribe(updatedTitle => {
@@ -21,6 +22,6 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.loginComponent.logout();
+    this.authenticationService.logout();
   }
 }

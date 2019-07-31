@@ -4,7 +4,7 @@ import { Order } from '../model/order';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OrdersService } from './orders.service';
 
-const serverUrl = 'assets/data/orders.json';
+const serverUrl = 'http://localhost:8080/po';
 
 @Injectable({
   providedIn: 'root'

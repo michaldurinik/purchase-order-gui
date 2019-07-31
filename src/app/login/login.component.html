@@ -4,7 +4,7 @@
   </h2>
   <img width="250" alt="LIT Logo" src="assets/img/lit_logo2.png"><br>
 
-  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.nnumber.errors }">
       <input type="nNumber" size="30" pInputText placeholder="nNumber" tabindex="1" formControlName="nnumber">
