@@ -24,6 +24,7 @@ import { OrdersHttpService} from './services/orders.http.service';
 import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { DefaultFormComponent } from './default-form/default-form.component';
     StandardformComponent,
     TravelFormComponent,
     NavbarComponent,
-    DefaultFormComponent
+    DefaultFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { DefaultFormComponent } from './default-form/default-form.component';
     ReactiveFormsModule,
     ToastModule,
     DialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DropdownModule
   ],
   providers: [NavbarService, { provide: OrdersService, useClass: OrdersHttpService } ],
   bootstrap: [AppComponent]
