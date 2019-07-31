@@ -79,8 +79,8 @@ export class DefaultFormComponent implements OnInit {
   }
   removeCourse(index): void {
     // tslint:disable-next-line:triple-equals
-    if (this.traveller.length > 1) {
-      this.traveller.removeAt(index);
+    if (this.course.length > 1) {
+      this.course.removeAt(index);
     }
   }
   addCourse(): void {
