@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User} from '../model/user';
-import { sampleUsers } from '../model/user';
+// import { sampleUsers } from '../model/user';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted = false;
   user: User;
-  userList = sampleUsers();
+  // userList = sampleUsers();
   msgs = [];
   returnUrl: string;
 
@@ -60,21 +60,21 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigateByUrl('/home');
         },
         error => {
           // this.alertService.error(error);
           // this.loading = false;
         });
   }
-  getUser(nnumber): User {
-    for (const user of this.userList) {
-      if (user.nnumber === nnumber) {
-        return user;
-      }
-    }
-    return null;
-  }
+  // getUser(nnumber): User {
+  //   for (const user of this.userList) {
+  //     if (user.nnumber === nnumber) {
+  //       return user;
+  //     }
+  //   }
+  //   return null;
+  // }
 
   showError() {
     this.msgs = [];

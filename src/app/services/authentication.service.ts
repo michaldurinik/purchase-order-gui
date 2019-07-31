@@ -16,6 +16,7 @@ const serverUrl = 'http://localhost:8080/auth';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  public authed = false;
 
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -26,13 +27,27 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+
+  giefAuth() {
+    return this.authed;
+  }
+  f() {
+    this.authed = true;
+  }
+
+  out() {
+    this.authed = false;
+  }
+
   login(nnumber, password) {
     return this.http.post<any>(serverUrl, {nnumber, password})
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        // localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('currentUser', user);
         this.currentUserSubject.next(user);
         console.log(user);
+        this.f();
         return user;
       }));
   }
@@ -41,6 +56,7 @@ export class AuthenticationService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.out();
     // this.router.navigate(['/login']);
   }
 
