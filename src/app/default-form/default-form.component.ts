@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { NavbarService } from '../services/navbar.service';
+import { SuppliersService } from '../services/suppliers.service';
+import { Suppliers } from '../model/supplier-details';
 
 @Component({
   selector: 'app-default-form',
@@ -9,12 +11,18 @@ import { NavbarService } from '../services/navbar.service';
 })
 export class DefaultFormComponent implements OnInit {
   title = 'Default Form';
-
-  constructor(private formBuilder: FormBuilder, private navbarService: NavbarService) {}
+  suppliers: Suppliers[];
+  constructor(private formBuilder: FormBuilder, private navbarService: NavbarService, private supplierService: SuppliersService) {
+    this.suppliers = [];
+    this.getSuppliers();
+  }
   defaultForm: FormGroup;
   isSubmitted = false;
   public show = false;
+
+
   ngOnInit() {
+    console.log(this.suppliers);
     this.navbarService.setTitle(this.title);
     this.defaultForm = this.formBuilder.group({
       Currency: ['', Validators.required],
@@ -46,6 +54,13 @@ export class DefaultFormComponent implements OnInit {
       course: this.formBuilder.array([this.buildCourses()]),
       // end group
     });
+  }
+  displaySuppliers() {
+    console.log(this.suppliers);
+  }
+  getSuppliers() {
+    this.supplierService.getAllSuppliers()
+      .subscribe(data => this.suppliers = data);
   }
   addItem(): void {
     this.item.push(this.buildItems());

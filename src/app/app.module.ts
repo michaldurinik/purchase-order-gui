@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { LoginComponent } from './login/login.component';
-import { FormsComponent } from './forms/forms.component';
+import { FormsComponent } from './forms-home/forms.component';
 import { OrdersComponent } from './orders/orders.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './services/routes';
@@ -25,6 +25,9 @@ import { OrdersService } from './services/orders.service';
 import { StandardformComponent } from './standardform/standardform.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { AuthenticationService } from './services/authentication.service';
+import { SuppliersService } from './services/suppliers.service';
+import { SuppliersHttpService } from './services/suppliers.http.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,12 @@ import { DropdownModule } from 'primeng/dropdown';
     BrowserAnimationsModule,
     DropdownModule
   ],
-  providers: [NavbarService, { provide: OrdersService, useClass: OrdersHttpService } ],
+  providers: [
+    NavbarService,
+    AuthenticationService,
+    { provide: OrdersService, useClass: OrdersHttpService },
+    { provide : SuppliersService, useClass: SuppliersHttpService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
