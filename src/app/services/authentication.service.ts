@@ -17,9 +17,12 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   public authed = false;
+  private user: User;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    // TODO
+    // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(this.user);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -59,7 +62,7 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.loggingOut();
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   // getUser(nnumber): User {

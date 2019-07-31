@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 import { NavbarService } from '../services/navbar.service';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -9,11 +8,12 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  loginComponent: LoginComponent;
   title = '';
-  currentUser = 'john.doe@gmail.com';
+  loggedUserEmail: string;
 
-  constructor(private navbarService: NavbarService, private authenticationService: AuthenticationService) { }
+  constructor(private navbarService: NavbarService, private authenticationService: AuthenticationService) {
+    this.loggedUserEmail = authenticationService.currentUserValue.email;
+  }
 
   ngOnInit() {
     this.navbarService.title.subscribe(updatedTitle => {
