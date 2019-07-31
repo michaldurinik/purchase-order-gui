@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsComponent } from './forms-home/forms.component';
 import { OrdersComponent } from './orders/orders.component';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './services/routes';
+import { appRoutes } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
