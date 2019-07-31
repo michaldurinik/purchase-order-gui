@@ -27,15 +27,14 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-
   giefAuth() {
     return this.authed;
   }
-  f() {
+  doAuth() {
     this.authed = true;
   }
 
-  out() {
+  loggingOut() {
     this.authed = false;
   }
 
@@ -46,8 +45,11 @@ export class AuthenticationService {
         // localStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem('currentUser', user);
         this.currentUserSubject.next(user);
+
+        // TODO
+        // this.currentUserSubject.value.isValid();
         console.log(user);
-        this.f();
+        this.doAuth();
         return user;
       }));
   }
@@ -56,7 +58,7 @@ export class AuthenticationService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.out();
+    this.loggingOut();
     // this.router.navigate(['/login']);
   }
 
