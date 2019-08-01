@@ -1,10 +1,11 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<p-messages [(value)]="msgs"></p-messages>
 <div style="text-align:center" xmlns="http://www.w3.org/1999/html">
   <br>
   <p class="first">Search for Existing Company
     <input id="input" type="text" size="45" pInputText placeholder="Please enter the company name"></p>
   <h4>OR Add New Company</h4></div>
-<form [formGroup]="standardForm" class="div_container" (ngSubmit)="update()">
+<form [formGroup]="standardForm" class="div_container" (ngSubmit)="submit()">
   <div formGroupName="company">
       <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }" class="first">Company Name</p>
         <input class="form_container" formControlName="companyName" id="companyName" type="text" size="100"
@@ -58,7 +59,6 @@
         </tbody>
 
       </div>
-        <br>
       </div>
     <p>Please select currency</p>
       <p-dropdown [options]="currencies" formControlName="currency" placeholder="Select a Currency"
@@ -69,10 +69,29 @@
       <p>Approver</p>
       <p-dropdown [options]="approvers" formControlName="approver" placeholder="Select approver"
                 optionLabel="name" [showClear]="true"></p-dropdown>
-      <p><button pButton type="submit" label="NEXT" class="ui-button-raised" style="align-content: end">
-      </button></p>
+    <br>
+    <br>
+    <button type="button" pButton (click)="showConfirm()" label="Submit Purchase Order" [disabled]="!standardForm.valid"
+            class="ui-button-info"></button>
+    <p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+      <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+          <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+          <h3>{{message.summary}}</h3>
+          <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-6">
+            <button type="button" pButton (click)="submit()" label="Yes" class="ui-button-success"></button>
+          </div>
+          <div class="ui-g-6">
+            <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>
+          </div>
+        </div>
+      </ng-template>
+    </p-toast>
   </table>
-
+  <!--<button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button>-->
 </form>
 
   <!--<table>
