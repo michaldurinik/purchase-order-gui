@@ -28,6 +28,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
+import { TrainingFormComponent } from './training-form/training-form.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { SuppliersHttpService } from './services/suppliers.http.service';
     TravelFormComponent,
     NavbarComponent,
     DefaultFormComponent,
+    TrainingFormComponent
   ],
   imports: [
     BrowserModule,
