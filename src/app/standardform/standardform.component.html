@@ -71,7 +71,7 @@
                 optionLabel="name" [showClear]="true"></p-dropdown>
     <br>
     <br>
-    <button type="button" pButton (click)="showConfirm()" label="Submit Purchase Order" [disabled]="!standardForm.valid"
+    <button style="background-color: #1A1446; color: white;" type="button" pButton (click)="showConfirm()" label="Submit Purchase Order" [disabled]="!standardForm.valid"
             class="ui-button-info"></button>
     <p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
       <ng-template let-message pTemplate="message">

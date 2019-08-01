@@ -1,0 +1,32 @@
+.topnav {
+  overflow: hidden;
+  background-color: #1A1446;
+  color: white;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0;
+  right: 0;/* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.topnav button{
+  background-color: #FFD000;
+  color:#1A1446;
+}
