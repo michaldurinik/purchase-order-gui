@@ -131,12 +131,12 @@
         </h2>
         <div formGroupName="flight">
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-            <input type="text" placeholder="Airline Name" formControlName="flightAirline" class=flight-container>
+            <input type="text" placeholder="Airline Name" formControlName="flightAirline" class=form_container_2>
           </p>
 
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Departure Airport" formControlName="departureAirport"
-                   class=flight-container>
+                   class=form_container_2>
           </p>
 
           <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
@@ -145,7 +145,7 @@
 
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Arrival Airport" formControlName="arrivalAirport"
-                   class=flight-container>
+                   class=form_container_2>
           </p>
 
           <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
@@ -154,21 +154,21 @@
           <p>Flight Check In</p>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="date" placeholder="Flight Check In" formControlName="flightCheckIn"
-                   class=flight-container>
+                   class=form_container_2>
           </p>
           <p>Flight Check Out</p>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="date" placeholder="Flight Check Out" formControlName="flightCheckOut"
-                   class=flight-container>
+                   class=form_container_2>
           </p>
 
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-            <input type="number" placeholder="Flight Cost" formControlName="flightCost" class=flight-container>
+            <input type="number" placeholder="Flight Cost" formControlName="flightCost" class=form_container_2>
           </p>
 
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Account Use" formControlName="flightAccountUse"
-                   class=flight-container>
+                   class=form_container_2>
           </p>
 
         </div>

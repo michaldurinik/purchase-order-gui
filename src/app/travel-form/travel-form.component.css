@@ -6,7 +6,7 @@
   top: 50%;
   right: 10%;
 }
-.flight-container{
+.form_container_2{
   text-align: center;
   width: 100%;
 }
@@ -24,4 +24,70 @@
   width: 50px;
   top: 0;
   left: 0;
+}
+.Training_tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.fixed_header tbody {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100px;
+}
+
+.fixed_header thead tr {
+  height: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  overflow-x:auto;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th {
+  background-color: #545556;
+  color: white;
+  padding: .425em;
+  text-align: center;
+}
+
+table td {
+  padding: .425em;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 0.75em;
+}
+
+table th {
+  font-size: .75em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+tr {
+  display: block;
+  width: 100%;
+}
+.form_container {
+  margin: auto;
+  position: static;
+  width: 80%;
+  border: 2px solid dodgerblue;
+  padding: 5px;
+}
+
+.form_container_2 {
+  margin: auto;
+  position: static;
+  width: 100%;
+  border: 2px solid dodgerblue;
+  padding: 2px;
 }
