@@ -5,12 +5,12 @@ export enum EnumUserType {
 }
 
 export class User {
-  constructor(public nnumber: string, public name: string, public email: string, public isAuthenticated: boolean,
+  constructor(public nnumber: string, public name: string, public email: string, public authenticated: boolean,
               public userType: EnumUserType, public secret: object) {
   }
 
   public isValid() {
-    return this.isAuthenticated;
+    return this.authenticated;
   }
 }
 
