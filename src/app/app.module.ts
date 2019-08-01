@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsComponent } from './forms-home/forms.component';
 import { OrdersComponent } from './orders/orders.component';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './services/routes';
+import { appRoutes } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -28,7 +28,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
-import { AutoCompleteModule } from 'primeng/autocomplete';
+import { TrainingFormComponent } from './training-form/training-form.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     TravelFormComponent,
     NavbarComponent,
     DefaultFormComponent,
+    TrainingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     DialogModule,
     BrowserAnimationsModule,
     DropdownModule,
-    AutoCompleteModule, MessagesModule,
+    MessagesModule,
   ],
   providers: [
     NavbarService,
