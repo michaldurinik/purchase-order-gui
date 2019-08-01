@@ -38,27 +38,30 @@
                 <th>Account Use</th>
               </tr>
               </thead>
-          <div formGroupName="hotel">
-            <tbody>
-            <tr class="Training_tr">
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="text" placeholder="Hotel Name" formControlName="hotelName" class=form_container_2>
-            </td>
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="date" placeholder="Hotel Check In" formControlName="hotelCheckIn" class=form_container_2>
-            </td>
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="date" placeholder="Hotel Check Out" formControlName="hotelCheckOut" class=form_container_2>
-            </td>
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="number" placeholder="Hotel Cost" formControlName="hotelCost" class=form_container_2>
-            </td>
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="text" placeholder="Account Use" formControlName="hotelAccountUse" class=form_container_2>
-            </td>
-            </tr>
-            </tbody>
-          </div>
+              <div formGroupName="hotel">
+                <tbody>
+                <tr class="Training_tr">
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="text" placeholder="Hotel Name" formControlName="hotelName" class=form_container_2>
+                  </td>
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="date" placeholder="Hotel Check In" formControlName="hotelCheckIn"
+                           class=form_container_2>
+                  </td>
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="date" placeholder="Hotel Check Out" formControlName="hotelCheckOut"
+                           class=form_container_2>
+                  </td>
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="number" placeholder="Hotel Cost" formControlName="hotelCost" class=form_container_2>
+                  </td>
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="text" placeholder="Account Use" formControlName="hotelAccountUse"
+                           class=form_container_2>
+                  </td>
+                </tr>
+                </tbody>
+              </div>
             </table>
           </div>
         </ng-container>
@@ -88,7 +91,7 @@
               </thead>
               <div formGroupName="flight">
                 <tbody>
-                  <tr class="Training_tr">
+                <tr class="Training_tr">
                   <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
                     <input type="text" placeholder="Airline Name" formControlName="flightAirline"
                            class=form_container_2>
@@ -143,38 +146,41 @@
                 <th>Add Car Price Per Day</th>
               </tr>
               </thead>
-          <div formGroupName="car">
-            <tbody>
-            <tr class="Training_tr">
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="text" placeholder="Add Car Name" formControlName="addCarName" class=form_container_2>
-            </td>
-<!--            <p>Add Car Collection Date</p>-->
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="date" placeholder="Add Car Collection Date" formControlName="addCarCollectionDate" class=form_container_2>
-            </td>
-<!--            <p>Add Car Return Date</p>-->
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="date" placeholder="Add Car Return Date" formControlName="addCarReturnDate" class=form_container_2>
-            </td>
+              <div formGroupName="car">
+                <tbody>
+                <tr class="Training_tr">
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="text" placeholder="Add Car Name" formControlName="addCarName" class=form_container_2>
+                  </td>
+                  <!--            <p>Add Car Collection Date</p>-->
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="date" placeholder="Add Car Collection Date" formControlName="addCarCollectionDate"
+                           class=form_container_2>
+                  </td>
+                  <!--            <p>Add Car Return Date</p>-->
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="date" placeholder="Add Car Return Date" formControlName="addCarReturnDate"
+                           class=form_container_2>
+                  </td>
 
-            <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input type="number" placeholder="Add Car Price Per Day" formControlName="addCarPricePerDay" class=form_container_2>
-            </td>
-            </tr>
-            </tbody>
-          </div>
+                  <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+                    <input type="number" placeholder="Add Car Price Per Day" formControlName="addCarPricePerDay"
+                           class=form_container_2>
+                  </td>
+                </tr>
+                </tbody>
+              </div>
             </table>
           </div>
         </ng-container>
         <br>
         <button pButton input type="button" label="Remove Previous Input" (click)="removeTraveller(k)">
-<!--          Remove previous input-->
+          <!--          Remove previous input-->
         </button>
       </div>
       <br>
       <button pButton input type="button" label="Add Another Traveller" (click)="addTraveller()">
-<!--        Add another Traveller-->
+        <!--        Add another Traveller-->
       </button>
     </div>
     <p>
