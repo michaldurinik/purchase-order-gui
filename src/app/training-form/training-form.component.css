@@ -44,6 +44,7 @@
   display: table;
   width: 100%;
   table-layout: fixed;
+  color:white;
 }
 .fixed_header tbody {
   display: block;
@@ -85,6 +86,7 @@ table th {
   font-size: .75em;
   letter-spacing: .1em;
   text-transform: uppercase;
+  background-color: #1A1446;
 }
 
 tr {
