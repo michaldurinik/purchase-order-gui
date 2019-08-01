@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <form [formGroup]="travellerForm" class="travel_container" (ngSubmit)="update()">
-  <div class travel_container>
+  <div style="text-align:center" xmlns="http://www.w3.org/1999/html">
     <h2>
       Traveller Details
     </h2>
@@ -11,11 +11,6 @@
           <input type="text" placeholder="Traveller Name" formControlName="travellerName">
         </p>
 
-
-        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-        <!--      <div *ngIf="formControls.name.errors.required">name is required</div>-->
-        <!--    </div>-->
-
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
           <input type="text" placeholder="Traveller N-Number" formControlName="travellerNnumber">
         </p>
@@ -23,11 +18,7 @@
         <br>
         <br>
 
-
-        <!--    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">-->
-        <!--      <div *ngIf="formControls.password.errors.required">N Number is required</div>-->
-        <!--    </div>-->
-
+<!--      <div class hotel-form>-->
         <h2>
           Hotel Details
         </h2>
@@ -56,13 +47,10 @@
           </p>
         </div>
         </ng-container>
+<!--      </div>-->
         <br>
         <br>
-
-        <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-        <!--      <div *ngIf="formControls.name.errors.required">Hotel name is required</div>-->
-        <!--    </div>-->
-
+<!--<div class flight-container>-->
         <h2>
           Flight Details
         </h2>
@@ -70,51 +58,51 @@
           <button pButton type="button" label="Add a Flight" class="ui-button-raised" (click)="toggleOne()">
           </button>
         </p>
-        <ng-container *ngIf="showOne">
-        <div formGroupName="flight">
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-            <input type="text" placeholder="Airline Name" formControlName="flightAirline" class=flight-container>
-          </p>
 
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+        <ng-container *ngIf="showOne">
+          <table>
+        <div formGroupName="flight">
+          <tbody>
+          <tr>
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+            <input type="text" placeholder="Airline Name" formControlName="flightAirline" class=flight-container>
+          </td>
+
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Departure Airport" formControlName="departureAirport"
                    class=flight-container>
-          </p>
+          </td>
 
-          <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-          <!--      <div *ngIf="formControls.name.errors.required">Departure Airport is required</div>-->
-          <!--    </div>-->
-
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Arrival Airport" formControlName="arrivalAirport"
                    class=flight-container>
-          </p>
+          </td>
 
-          <!--    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">-->
-          <!--      <div *ngIf="formControls.name.errors.required">Arrival Airport is required</div>-->
-          <!--    </div>-->
           <p>Flight Check In</p>
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="date" placeholder="Flight Check In" formControlName="flightCheckIn"
                    class=flight-container>
-          </p>
+          </td>
           <p>Flight Check Out</p>
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="date" placeholder="Flight Check Out" formControlName="flightCheckOut"
                    class=flight-container>
-          </p>
+          </td>
 
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="number" placeholder="Flight Cost" formControlName="flightCost" class=flight-container>
-          </p>
+          </td>
 
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+          <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
             <input type="text" placeholder="Account Use" formControlName="flightAccountUse"
                    class=flight-container>
-          </p>
-
+          </td>
+          </tr>
+          </tbody>
         </div>
+          </table>
         </ng-container>
+<!--</div>-->
         <h2>
           Car
         </h2>
@@ -141,13 +129,18 @@
           </p>
         </div>
         </ng-container>
+        <button pButton input type="button" (click)="removeTraveller(k)">
+          Remove previous input
+        </button>
       </div>
-      <button type="button" (click)="addTraveller()">
-        add another Traveller
+      <br>
+      <button pButton input type="button" (click)="addTraveller()">
+        Add another Traveller
       </button>
     </div>
-  </div>
+
   <p>
     <button pButton input type="submit" value="Add to Form" label="Add to Form"></button>
   </p>
+  </div>
 </form>

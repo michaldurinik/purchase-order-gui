@@ -3,8 +3,8 @@
 }
 .hotel-form{
   position: absolute;
-  top: 50px;
-  right: 10px;
+  top: 50%;
+  right: 10%;
 }
 .flight-container{
   text-align: center;

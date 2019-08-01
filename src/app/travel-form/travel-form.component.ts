@@ -61,6 +61,15 @@ export class TravelFormComponent implements OnInit {
   addTraveller(): void {
     this.traveller.push(this.buildTravellers());
   }
+  removeTraveller(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.traveller.length > 1) {
+      this.traveller.removeAt(index);
+    }
+  }
+  get order(): FormArray {
+    return this.travellerForm.get('order') as FormArray;
+  }
   get course(): FormArray {
     return this.travellerForm.get('course') as FormArray;
   }
