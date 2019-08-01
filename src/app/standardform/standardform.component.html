@@ -24,20 +24,25 @@
     </div>
   <br>
   <br>
-  <table>
-    <thead>
-    <tr>
-      <th>Account Use</th>
-      <th>Quantity</th>
-      <th>Description</th>
-      <th>Cost</th>
-      <th>Total</th>
-    </tr>
-    </thead>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+      <tr class="t-order">
+        <th>Account Use</th>
+        <th>Quantity</th>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Total</th>
+        <th>Add</th>
+        <th>Remove</th>
+
+      </tr>
+      </thead>
+
       <div formArrayName="order" *ngFor="let orders of order.controls;let i = index">
-      <div [formGroupName]="i">
-        <tbody>
-          <tr>
+        <div [formGroupName]="i">
+          <tbody>
+          <tr class="t-order">
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
               <input class="form_container_2" type="text" placeholder="Account Use" formControlName="accountUse" />
             </td>
@@ -53,23 +58,41 @@
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
               <input class="form_container_2" type="number" placeholder="Total cost" formControlName="orderTotal">
             </td>
-            <td><button pButton class="form-icons" type="button" [disabled]="!order.valid" (click)="addItem()">Add</button>
+            <td>
+              <div *ngIf="i == order.length-1">
+                <button pButton class="form-icons-add" icon="pi pi-plus-circle" type="button" [disabled]="!order.valid" (click)="addItem()">
+                </button>
+              </div>
+            </td>
+            <td>
+              <button pButton class="form-icons-remove" icon="pi pi-times-circle" type="button" (click)="removeItem(i)">
+              </button>
             </td>
           </tr>
-        </tbody>
+          </tbody>
 
+        </div>
+        <br>
       </div>
-      </div>
-    <p>Please select currency</p>
-      <p-dropdown [options]="currencies" formControlName="currency" placeholder="Select a Currency"
-                  optionLabel="name" [showClear]="true"></p-dropdown>
-    <p>Please select payment method</p>
-      <p-dropdown [options]="paymentMethod" formControlName="payment" placeholder="Select payment method"
-                  optionLabel="name" [showClear]="true"></p-dropdown>
-      <p>Approver</p>
-      <p-dropdown [options]="approvers" formControlName="approver" placeholder="Select approver"
-                optionLabel="name" [showClear]="true"></p-dropdown>
+    </table>
+  </div>
     <br>
+  <div style="float: left;">
+    <h4>Please select currency</h4>
+    <p-dropdown [options]="currencies" formControlName="currency" placeholder="Select a Currency"
+                optionLabel="name" [showClear]="true"></p-dropdown>
+  </div>
+  <div style="float: right;">
+    <h4>Please select payment method</h4>
+    <p-dropdown [options]="paymentMethod" formControlName="payment" placeholder="Select payment method"
+                optionLabel="name" [showClear]="true"></p-dropdown>
+  </div>
+  <div style="float: bottom;">
+    <h4>Approver</h4>
+    <p-dropdown [options]="approvers" formControlName="approver" placeholder="Select approver"
+                optionLabel="name" [showClear]="true"></p-dropdown>
+
+  </div>
     <br>
     <button type="button" pButton (click)="showConfirm()" label="Submit Purchase Order" [disabled]="!standardForm.valid"
             class="ui-button-info"></button>
@@ -90,142 +113,7 @@
         </div>
       </ng-template>
     </p-toast>
-  </table>
-  <!--<button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button>-->
 </form>
-
-  <!--<table>
-    <thead>
-    <tr>
-      <th>Account Use</th>
-      <th>Quantity</th>
-      <th>Description</th>
-      <th>Cost</th>
-      <th>Total</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let field of fieldArray; let i = index">
-      <td>
-        <input [(ngModel)]="field.accountUse" class="form_container_2" type="text" name="{{field.accountUse}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.quantity" class="form_container_2" type="text" name="{{field.quantity}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.description" class="form_container_2" type="text" name="{{field.description}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.cost" class="form_container_2" type="text" name="{{field.cost}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.total" class="form_container_2" type="text" name="{{field.total}}" />
-      </td>
-      <td>
-        <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-        <p-button label="Delete" styleClass="ui-button-danger" (click)="deleteFieldValue(i)"></p-button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeAccountUse" [(ngModel)]="newAttribute.accountUse" name="newAttributeAccountUse" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeQuantity" [(ngModel)]="newAttribute.quantity" name="newAttributeQuantity" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeDescription" [(ngModel)]="newAttribute.description" name="newAttributeDescription" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeCost" [(ngModel)]="newAttribute.cost" name="newAttributeCost" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeTotal" [(ngModel)]="newAttribute.total" name="newAttributeTotal" />
-      </td>
-      <td>
-        <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
-        <p-button label="Add" (click)="addFieldValue()"></p-button>
-      </td>
-    </tr>
-    </tbody>
-  </table>-->
-
-<!--<div class="div_container" style="align-content: center">
-  <div formGroupName="company">  <form [formGroup]="trainingForm" (ngSubmit)="Submit()">
-  <p for="companyName" class="first">Company Name</p>
-  <input class="form_container" formControlName="companyName" id="companyName" type="text" size="100"
-         pInputText placeholder="Please enter the company name">
-  <p class="first">Company Address</p>
-  <input class="form_container" formControlName="companyAddress" id="companyAddress" type="text" size="100"
-         pInputText placeholder="Please enter the address">
-  <p class="first">Company Phone Number</p>
-  <input class="form_container" formControlName="companyPhone" id="companyPhone" type="text" size="100"
-         pInputText placeholder="Please enter the telephone number">
-  <p class="first">Company Email</p>
-  <input class="form_container" formControlName="companyEmail" id="companyEmail" type="email" size="100"
-         pInputText placeholder="Please enter the email">
-   <p><button pButton type="submit" label="NEXT" class="ui-button-raised" style="align-content: end">
-   </button></p>
-  </form>
-</div>-->
-  <!--<form [formGroup]="form2" {ngSubmit}=""-->
-  <!--<form [formGroup]="purchaseOrder">-->
-  <!--<table>
-    <thead>
-    <tr>
-      <th>Account Use</th>
-      <th>Quantity</th>
-      <th>Description</th>
-      <th>Cost</th>
-      <th>Total</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let field of fieldArray; let i = index">
-      <td>
-        <input [(ngModel)]="field.accountUse" class="form_container_2" type="text" name="{{field.accountUse}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.quantity" class="form_container_2" type="text" name="{{field.quantity}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.description" class="form_container_2" type="text" name="{{field.description}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.cost" class="form_container_2" type="text" name="{{field.cost}}" />
-      </td>
-      <td>
-        <input [(ngModel)]="field.total" class="form_container_2" type="text" name="{{field.total}}" />
-      </td>
-      <td>
-        &lt;!&ndash;<button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>&ndash;&gt;
-        <p-button label="Delete" styleClass="ui-button-danger" (click)="deleteFieldValue(i)"></p-button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeAccountUse" [(ngModel)]="newAttribute.accountUse" name="newAttributeAccountUse" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeQuantity" [(ngModel)]="newAttribute.quantity" name="newAttributeQuantity" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeDescription" [(ngModel)]="newAttribute.description" name="newAttributeDescription" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeCost" [(ngModel)]="newAttribute.cost" name="newAttributeCost" />
-      </td>
-      <td>
-        <input class="form_container_2" type="text" id="newAttributeTotal" [(ngModel)]="newAttribute.total" name="newAttributeTotal" />
-      </td>
-      <td>
-        &lt;!&ndash;<button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>&ndash;&gt;
-        <p-button label="Add" (click)="addFieldValue()"></p-button>
-      </td>
-    </tr>
-    </tbody>
-  </table>-->
-
 
 
 

@@ -32,11 +32,58 @@
   border: 2px solid dodgerblue;
   padding: 5px;
 }
-
+.t-order {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
 .form_container_2 {
   margin: auto;
   position: static;
   width: 100%;
   border: 2px solid dodgerblue;
   padding: 2px;
+}
+table {
+  border-collapse: collapse;
+  overflow-x:auto;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th {
+  background-color: #545556;
+  color: white;
+  padding: .425em;
+  text-align: center;
+}
+
+table td {
+  padding: .425em;
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 0.75em;
+}
+
+table th {
+  font-size: .75em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+tr {
+  display: block;
+  width: 100%;
+}
+.form-icons-add{
+  background-color: green;
+  height: 50px;
+}
+.form-icons-remove {
+  background-color: Red;
+  height: 50px;
 }

@@ -104,7 +104,12 @@ export class StandardformComponent {
   }
   get formControls() { return this.standardForm.controls;
   }
-
+  removeItem(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.order.length > 1) {
+      this.order.removeAt(index);
+    }
+  }
   buildOrders() {
     return this.formBuilder.group({
       accountUse: ['', Validators.required],
