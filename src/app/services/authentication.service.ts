@@ -16,9 +16,13 @@ const serverUrl = 'http://localhost:8080/auth';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  public authed = false;
+  private user: User;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    // TODO
+    // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(this.user);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -26,13 +30,29 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  giefAuth() {
+    return this.authed;
+  }
+  doAuth() {
+    this.authed = true;
+  }
+
+  loggingOut() {
+    this.authed = false;
+  }
+
   login(nnumber, password) {
     return this.http.post<any>(serverUrl, {nnumber, password})
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        // localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('currentUser', user);
         this.currentUserSubject.next(user);
+
+        // TODO
+        // this.currentUserSubject.value.isValid();
         console.log(user);
+        this.doAuth();
         return user;
       }));
   }
@@ -41,7 +61,8 @@ export class AuthenticationService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    // this.router.navigate(['/login']);
+    this.loggingOut();
+    this.router.navigate(['/']);
   }
 
   // getUser(nnumber): User {
