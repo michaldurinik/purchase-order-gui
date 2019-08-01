@@ -4,15 +4,12 @@ import {Message, MessageService} from 'primeng/api';
 
 interface Currency {
   name: string;
-  code: string;
 }
 interface Payment {
   name: string;
-  code: string;
 }
 interface Approver {
   name: string;
-  code: string;
 }
 
 @Component({
@@ -34,20 +31,10 @@ export class StandardformComponent {
 
   constructor(private formBuilder: FormBuilder, private messageService: MessageService) {
     this.standardForm = this.formBuilder.group({
+      poNumber: ['9998888'],
       currency: ['', Validators.required],
       payment: ['', Validators.required],
       approver: ['', Validators.required],
-   /*   orderDetails: this.formBuilder.group({
-          accountUse: ['', Validators.required],
-          orderQuantity: ['', Validators.required],
-          orderDescription: ['', Validators.required],
-          orderCost: ['', Validators.required],
-          orderTotal: ['', Validators.required],
-          selectedCurrency: ['', Validators.required],
-          unitName: ['', Validators.required],
-          nameSDL: ['', Validators.required]
-      }),*/
-      // company nested group
       company: this.formBuilder.group({
         companyName: ['', Validators.required],
         companyAddress: ['', Validators.required],
@@ -61,20 +48,20 @@ export class StandardformComponent {
     })
     ;
     this.currencies = [
-      {name: '€ - Euro', code: '€'},
-      {name: '£ - Sterling', code: '£'},
-      {name: '$ - Dollar', code: '$'},
+      {name: '€ - Euro'},
+      {name: '£ - Sterling'},
+      {name: '$ - Dollar'},
     ];
     this.paymentMethod = [
-      {name: 'Credit Card - Visa', code: '1'},
-      {name: 'Credit Card - Master', code: '2'},
-      {name: 'Cash', code: '3'},
-      {name: 'Cheque', code: '4'},
+      {name: 'Credit Card - Visa'},
+      {name: 'Credit Card - Master'},
+      {name: 'Cash'},
+      {name: 'Cheque'},
     ];
     this.approvers = [
-      {name: 'Batman', code: '€'},
-      {name: 'Superman', code: '£'},
-      {name: 'Iron-man', code: '$'}
+      {name: 'Peter Parker'},
+      {name: 'Tony Stark'},
+      {name: 'Bruce Wayne'}
       ];
   }
   showConfirm() {
