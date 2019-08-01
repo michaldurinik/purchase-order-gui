@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { OverlayPanelModule, SplitButtonModule } from 'primeng/primeng';
+import {MessagesModule, OverlayPanelModule, SplitButtonModule} from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
@@ -28,6 +28,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SuppliersHttpService } from './services/suppliers.http.service';
     ToastModule,
     DialogModule,
     BrowserAnimationsModule,
-    DropdownModule
+    DropdownModule,
+    AutoCompleteModule, MessagesModule,
   ],
   providers: [
     NavbarService,
