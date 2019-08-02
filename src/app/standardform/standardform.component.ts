@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import {Message, MessageService} from 'primeng/api';
 
 interface Currency {
   name: string;
@@ -18,6 +19,7 @@ interface Approver {
   selector: 'app-standardform',
   templateUrl: './standardform.component.html',
   styleUrls: ['./standardform.component.css'],
+  providers: [MessageService]
 })
 export class StandardformComponent {
   standardForm: FormGroup;
@@ -28,22 +30,23 @@ export class StandardformComponent {
   approvers: Approver[];
   isSubmitted = false;
   public show = false;
+  msgs: Message[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService) {
     this.standardForm = this.formBuilder.group({
       currency: ['', Validators.required],
       payment: ['', Validators.required],
       approver: ['', Validators.required],
-      orderDetails: this.formBuilder.group({
-        accountUse: ['', Validators.required],
-        orderQuantity: ['', Validators.required],
-        orderDescription: ['', Validators.required],
-        orderCost: ['', Validators.required],
-        orderTotal: ['', Validators.required],
-        selectedCurrency: ['', Validators.required],
-        unitName: ['', Validators.required],
-        nameSDL: ['', Validators.required]
-      }),
+   /*   orderDetails: this.formBuilder.group({
+          accountUse: ['', Validators.required],
+          orderQuantity: ['', Validators.required],
+          orderDescription: ['', Validators.required],
+          orderCost: ['', Validators.required],
+          orderTotal: ['', Validators.required],
+          selectedCurrency: ['', Validators.required],
+          unitName: ['', Validators.required],
+          nameSDL: ['', Validators.required]
+      }),*/
       // company nested group
       company: this.formBuilder.group({
         companyName: ['', Validators.required],
@@ -52,16 +55,11 @@ export class StandardformComponent {
         companyEmail: ['', Validators.required],
       }),
       // end nested group
-      // Each Traveller has a hotel & flight and car of their own nested group
-      traveller: this.formBuilder.array([this.buildTravellers()]),
-      // end of group
       // purchase order nested group
       order: this.formBuilder.array([this.buildOrders()]),
       // end group
-      // course nested group
-      course: this.formBuilder.array([this.buildCourses()]),
-      // end group
-    });
+    })
+    ;
     this.currencies = [
       {name: '€ - Euro', code: '€'},
       {name: '£ - Sterling', code: '£'},
@@ -76,85 +74,42 @@ export class StandardformComponent {
     this.approvers = [
       {name: 'Batman', code: '€'},
       {name: 'Superman', code: '£'},
-      {name: 'Iron-man', code: '$'}];
+      {name: 'Iron-man', code: '$'}
+      ];
+  }
+  showConfirm() {
+    this.messageService.clear();
+    this.messageService.add({key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' });
   }
 
+  onReject() {
+    this.messageService.clear('c');
+  }
+
+  clear() {
+    this.messageService.clear();
+  }
   addItem(): void {
     this.order.push(this.buildOrders());
-  }
-  addCourse(): void {
-    this.course.push(this.buildCourses());
-  }
-  addTraveller(): void {
-    this.traveller.push(this.buildTravellers());
-  }
-  get course(): FormArray {
-    return this.standardForm.get('course') as FormArray;
   }
   get order(): FormArray {
     return this.standardForm.get('order') as FormArray;
   }
-  get traveller(): FormArray {
-    return this.standardForm.get('traveller') as FormArray;
-  }
-  Submit() {
+  submit() {
     console.log(this.standardForm.value);
-  }
-  update() {
-    console.log(this.standardForm.value);
-  }
-  addFieldValue() {
-    this.fieldArray.push(this.newAttribute)
-    this.newAttribute = {};
+    this.messageService.clear('c');
+    this.msgs = [];
+    this.msgs.push({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
+    this.standardForm.reset();
   }
   get formControls() { return this.standardForm.controls;
   }
-  deleteFieldValue(index) {
-    this.fieldArray.splice(index, 1);
+  removeItem(index): void {
+    // tslint:disable-next-line:triple-equals
+    if (this.order.length > 1) {
+      this.order.removeAt(index);
+    }
   }
-
-  buildTravellers() {
-    return this.formBuilder.group({
-      travellerName: ['', Validators.required],
-      travellerNnumber: ['', Validators.required],
-      hotel: this.formBuilder.group({
-        hotelName: ['', Validators.required],
-        hotelCheckIn: ['', Validators.required],
-        hotelCheckOut: ['', Validators.required],
-        hotelCost: ['', Validators.required],
-        hotelAccountUse: ['', Validators.required]
-      }),
-      flight: this.formBuilder.group({
-        flightAirline: ['', Validators.required],
-        departureAirport: ['', Validators.required],
-        arrivalAirport: ['', Validators.required],
-        flightCheckIn: ['', Validators.required],
-        flightCheckOut: ['', Validators.required],
-        flightCost: ['', Validators.required],
-        flightAccountUse: ['', Validators.required]
-      }),
-      car: this.formBuilder.group({
-        addCarName: ['', Validators.required],
-        addCarCollectionDate: ['', Validators.required],
-        addCarReturnDate: ['', Validators.required],
-        addCarPricePerDay: ['', Validators.required]
-      })
-    });
-  }
-
-  buildCourses() {
-    return this.formBuilder.group({
-      nameCourse: ['', Validators.required],
-      dateCourseStart: ['', Validators.required],
-      courseDuration: ['', Validators.required],
-      courseLocation: ['', Validators.required],
-      directorName: ['', Validators.required],
-      coursePrice: ['', Validators.required],
-      amountAttending: ['', Validators.required],
-      priceIncludeHotel: [false, Validators.required]
-    });
-  }
-
   buildOrders() {
     return this.formBuilder.group({
       accountUse: ['', Validators.required],

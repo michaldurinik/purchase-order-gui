@@ -1,17 +1,11 @@
-.travel_container{
-  text-align: left;
+.divider{
+  width:30px;
+  height:auto;
+  display:inline-block;
 }
-.hotel-form{
-  position: absolute;
-  top: 50%;
-  right: 10%;
-}
-.form_container_2{
-  text-align: center;
-  width: 100%;
-}
-.title{
-  text-align: center;
+.ui-button-raised {
+  width: 200px;
+  font-size: 22px;
 }
 .logoutbutton {
   position: absolute;
@@ -19,16 +13,38 @@
   top: 0;
   right: 0;
 }
-.homebutton {
-  position: absolute;
-  width: 50px;
-  top: 0;
-  left: 0;
+.form-icons {
+  font-size: 15px;
+  padding: 10px;
+}
+.div_container {
+  margin: auto;
+  position: static;
+  width: 80%;
+  border: 2px solid dodgerblue;
+  padding: 20px;
+}
+
+.form_container {
+  margin: auto;
+  position: static;
+  width: 80%;
+  border: 2px solid dodgerblue;
+  padding: 5px;
+}
+
+.form_container_2 {
+  margin: auto;
+  position: static;
+  width: 100%;
+  border: 2px solid dodgerblue;
+  padding: 2px;
 }
 .Training_tr {
   display: table;
   width: 100%;
   table-layout: fixed;
+  color:white;
 }
 .fixed_header tbody {
   display: block;
@@ -70,24 +86,20 @@ table th {
   font-size: .75em;
   letter-spacing: .1em;
   text-transform: uppercase;
+  background-color: #1A1446;
 }
 
 tr {
   display: block;
   width: 100%;
 }
-.form_container {
-  margin: auto;
-  position: static;
-  width: 80%;
-  border: 2px solid dodgerblue;
-  padding: 5px;
-}
 
-.form_container_2 {
-  margin: auto;
-  position: static;
-  width: 100%;
-  border: 2px solid dodgerblue;
-  padding: 2px;
+/*TODO This must be fixed at a later date*/
+.form-icons-add{
+  background-color: green;
+  height: 50px;
+}
+.form-icons-remove{
+  background-color: Red;
+  height: 50px;
 }
