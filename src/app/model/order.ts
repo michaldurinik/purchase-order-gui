@@ -1,5 +1,5 @@
 export interface Order {
-  poNumber: number;
+  poNumber: string;
   date: string;
   subDepartment: string;
   requestedBy: string;

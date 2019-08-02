@@ -5,7 +5,7 @@
   <p class="first">Search for Existing Company
     <input id="input" type="text" size="45" pInputText placeholder="Please enter the company name"></p>
   <h4>OR Add New Company</h4></div>
-<form [formGroup]="standardForm" class="div_container" (ngSubmit)="submit()">
+<form [formGroup]="standardForm" class="div_container" (ngSubmit)="onSubmit()">
   <div formGroupName="company">
       <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }" class="first">Company Name</p>
         <input class="form_container" formControlName="companyName" id="companyName" type="text" size="100"
@@ -105,7 +105,7 @@
         </div>
         <div class="ui-g ui-fluid">
           <div class="ui-g-6">
-            <button type="button" pButton (click)="submit()" label="Yes" class="ui-button-success"></button>
+            <button type="button" pButton (click)="onSubmit()" label="Yes" class="ui-button-success"></button>
           </div>
           <div class="ui-g-6">
             <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>

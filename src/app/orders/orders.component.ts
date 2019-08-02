@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'primeng/api';
 import { NavbarService } from '../services/navbar.service';
 import { OrdersService } from '../services/orders.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-orders',
@@ -19,13 +20,16 @@ export class OrdersComponent implements OnInit {
   actionMenu: MenuItem[];
 
   constructor(private http: HttpClient,
-              private navbarService: NavbarService, private ordersService: OrdersService) {
+              private navbarService: NavbarService, private ordersService: OrdersService,
+              private authenticationService: AuthenticationService) {
     this.orders = [];
     this.getOrders();
   }
 
   ngOnInit() {
     this.navbarService.setTitle(this.title);
+    console.log(this.authenticationService.currentUserValue.nnumber);
+    console.log(this.authenticationService.currentUserValue.secret);
     this.cols = [
       {field: 'poNumber', header: 'PO number'},
       {field: 'date', header: 'Date'},

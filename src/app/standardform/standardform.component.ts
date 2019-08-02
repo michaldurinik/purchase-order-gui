@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
-import {Message, MessageService} from 'primeng/api';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { Message, MessageService } from 'primeng/api';
+import { SubmittingService } from '../services/submitting.service';
+import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../services/authentication.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Order } from '../model/order';
 
 interface Currency {
   name: string;
@@ -21,7 +26,7 @@ interface Approver {
   styleUrls: ['./standardform.component.css'],
   providers: [MessageService]
 })
-export class StandardformComponent {
+export class StandardformComponent implements OnInit {
   standardForm: FormGroup;
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
@@ -31,8 +36,15 @@ export class StandardformComponent {
   isSubmitted = false;
   public show = false;
   msgs: Message[] = [];
+  returnUrl: string;
+  ord: Order;
 
-  constructor(private formBuilder: FormBuilder, private messageService: MessageService) {
+  constructor(private formBuilder: FormBuilder,
+              private messageService: MessageService,
+              private authenticationService: AuthenticationService,
+              private submittingService: SubmittingService,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.standardForm = this.formBuilder.group({
       currency: ['', Validators.required],
       payment: ['', Validators.required],
@@ -77,6 +89,11 @@ export class StandardformComponent {
       {name: 'Iron-man', code: '$'}
       ];
   }
+
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
+  }
+
   showConfirm() {
     this.messageService.clear();
     this.messageService.add({key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' });
@@ -95,12 +112,33 @@ export class StandardformComponent {
   get order(): FormArray {
     return this.standardForm.get('order') as FormArray;
   }
-  submit() {
+  onSubmit() {
     console.log(this.standardForm.value);
     this.messageService.clear('c');
     this.msgs = [];
     this.msgs.push({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
     this.standardForm.reset();
+    console.log(typeof this.submittingService);
+    // this.submittingService.sendPoDataToBackend(this.authenticationService.currentUserValue.nnumber, null,
+    //   {purchaseOrder:
+    //                           {
+    //                             "poNumber": "n5555555",
+    //                             "date": "2019-08-02",
+    //                             "subDepartment": "Compute",
+    //                             "requestedBy": "John Malcovich",
+    //                             "status": "open"
+    //                           }
+    //   }
+    // )
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       this.router.navigate([this.returnUrl]);
+    //     },
+    //     error => {
+    //       // this.alertService.error(error);
+    //       // this.loading = false;
+    //     });
   }
   get formControls() { return this.standardForm.controls;
   }

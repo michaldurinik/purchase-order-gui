@@ -29,6 +29,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { SuppliersService } from './services/suppliers.service';
 import { SuppliersHttpService } from './services/suppliers.http.service';
 import { TrainingFormComponent } from './training-form/training-form.component';
+import { SubmittingService } from './services/submitting.service';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { TrainingFormComponent } from './training-form/training-form.component';
   providers: [
     NavbarService,
     AuthenticationService,
+    SubmittingService,
     { provide: OrdersService, useClass: OrdersHttpService },
     { provide : SuppliersService, useClass: SuppliersHttpService }
   ],
