@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import {Message, MessageService} from 'primeng/api';
+import {getAttributeValue} from 'codelyzer/util/getAttributeValue';
 
 interface Currency {
   name: string;
@@ -28,6 +29,7 @@ export class StandardformComponent {
   isSubmitted = false;
   public show = false;
   msgs: Message[] = [];
+  disabled: true;
 
   constructor(private formBuilder: FormBuilder, private messageService: MessageService) {
     this.standardForm = this.formBuilder.group({
@@ -103,7 +105,7 @@ export class StandardformComponent {
       orderQuantity: ['', Validators.required],
       orderDescription: ['', Validators.required],
       orderCost: ['', Validators.required],
-      orderTotal: ['', Validators.required]
+      orderTotal: ['']
     });
   }
 }
