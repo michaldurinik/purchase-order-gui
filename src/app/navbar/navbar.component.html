@@ -1,5 +1,6 @@
 <div class="topnav">
   <button pButton routerLink="/home" type="button" icon="pi pi-home" iconPos="left" label="Home" style="float:left"></button>
+  <button pButton label="Back" icon="pi pi-arrow-circle-left" iconPos="left" label="Back" (click) = "goBack()" style="float:left"></button>
   <button pButton label="Logout" icon="pi pi-sign-out" iconPos="left" (click)="logout()" style="float:right"></button>
   <span style="float:right; font-size: larger; padding-right: 8px">Welcome: {{loggedUserEmail}}</span>
   <h2 style="margin-left: 45%">{{title}}</h2>
