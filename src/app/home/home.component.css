@@ -39,12 +39,23 @@
   border-radius: 5%;
 }
 .ui-button-raised{
-  width: 60%;
+  width: 100%;
   font-size: 22px;
 }
 .Help_button{
+  background-color: #06748C ;
   width: 15%;
 }
 .Liberty_image{
   width:20%;
+}
+.img_new {
+  position: relative;
+  float: left;
+  border-radius: 5%;
+  width:  100%;
+  height: 400px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
 }
