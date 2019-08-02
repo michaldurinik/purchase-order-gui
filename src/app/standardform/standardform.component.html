@@ -47,16 +47,18 @@
               <input class="form_container_2" type="text" placeholder="Account Use" formControlName="accountUse" />
             </td>
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input class="form_container_2" type="number" placeholder="Item Quantity" formControlName="orderQuantity" />
+              <input #value1 class="form_container_2" type="number" placeholder="Item Quantity" formControlName="orderQuantity" />
             </td>
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
               <input class="form_container_2" type="text" placeholder="Order Description" formControlName="orderDescription">
             </td>
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input class="form_container_2" type="number" placeholder="Cost per unit" formControlName="orderCost">
+              <input #value2 class="form_container_2" type="number" placeholder="Cost per unit" formControlName="orderCost">
             </td>
             <td [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
-              <input class="form_container_2" type="number" placeholder="Total cost" formControlName="orderTotal">
+              <input class="form_container_2"
+                     [value]="(value1.value && value2.value) ? (+value1.value * +value2.value) : ''"
+                     type="number" formControlName="orderTotal" disabled>
             </td>
             <td>
               <div *ngIf="i == order.length-1">

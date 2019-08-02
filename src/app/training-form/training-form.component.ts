@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import {NavbarService} from '../services/navbar.service';
+import {Message, MessageService} from 'primeng/api';
 
 interface Currency {
   name: string;
-  code: string;
 }
 interface Payment {
   name: string;
-  code: string;
 }
 interface Approver {
   name: string;
-  code: string;
 }
 
 @Component({
   selector: 'app-training-form',
   templateUrl: './training-form.component.html',
   styleUrls: ['./training-form.component.css'],
+  providers: [MessageService],
 })
 export class TrainingFormComponent {
   trainingForm: FormGroup;
@@ -30,23 +29,14 @@ export class TrainingFormComponent {
   isSubmitted = false;
   public show = false;
   title = 'Training Form';
+  msgs: Message[] = [];
 
-  constructor(private formBuilder: FormBuilder, private navbarService: NavbarService) {
+  constructor(private formBuilder: FormBuilder, private navbarService: NavbarService, private messageService: MessageService) {
     this.navbarService.setTitle(this.title);
     this.trainingForm = this.formBuilder.group({
       currency: ['', Validators.required],
       payment: ['', Validators.required],
       approver: ['', Validators.required],
-      orderDetails: this.formBuilder.group({
-        accountUse: ['', Validators.required],
-        orderQuantity: ['', Validators.required],
-        orderDescription: ['', Validators.required],
-        orderCost: ['', Validators.required],
-        orderTotal: ['', Validators.required],
-        selectedCurrency: ['', Validators.required],
-        unitName: ['', Validators.required],
-        nameSDL: ['', Validators.required]
-      }),
       // company nested group
       company: this.formBuilder.group({
         companyName: ['', Validators.required],
@@ -54,32 +44,41 @@ export class TrainingFormComponent {
         companyPhone: ['', Validators.required],
         companyEmail: ['', Validators.required],
       }),
-      // end nested group
-      // Each Traveller has a hotel & flight and car of their own nested group
-      traveller: this.formBuilder.array([this.buildTravellers()]),
-      // end of group
-      // purchase order nested group
-      order: this.formBuilder.array([this.buildOrders()]),
-      // end group
       // course nested group
       course: this.formBuilder.array([this.buildCourses()]),
       // end group
     });
     this.currencies = [
-      {name: '€ - Euro', code: '€'},
-      {name: '£ - Sterling', code: '£'},
-      {name: '$ - Dollar', code: '$'},
+      {name: '€ - Euro'},
+      {name: '£ - Sterling'},
+      {name: '$ - Dollar'},
     ];
     this.paymentMethod = [
-      {name: 'Credit Card - Visa', code: '1'},
-      {name: 'Credit Card - Master', code: '2'},
-      {name: 'Cash', code: '3'},
-      {name: 'Cheque', code: '4'},
+      {name: 'Credit Card - Visa'},
+      {name: 'Credit Card - Master'},
+      {name: 'Cash'},
+      {name: 'Cheque'},
     ];
     this.approvers = [
-      {name: 'Batman', code: '€'},
-      {name: 'Superman', code: '£'},
-      {name: 'Iron-man', code: '$'}];
+      {name: 'Peter Parker'},
+      {name: 'Tony Stark'},
+      {name: 'Bruce Wayne'}
+    ];
+  }
+  showConfirm() {
+    this.messageService.clear();
+    this.messageService.add({key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Confirm to proceed' });
+  }
+  submit() {
+    console.log(this.trainingForm.value);
+    this.messageService.clear('c');
+    this.msgs = [];
+    this.msgs.push({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
+    this.trainingForm.reset();
+  }
+
+  onReject() {
+    this.messageService.clear('c');
   }
 
   addItem(): void {
@@ -88,19 +87,10 @@ export class TrainingFormComponent {
   addCourse(): void {
     this.course.push(this.buildCourses());
   }
-  addTraveller(): void {
-    this.traveller.push(this.buildTravellers());
-  }
   removeItem(index): void {
     // tslint:disable-next-line:triple-equals
     if (this.item.length > 1) {
       this.item.removeAt(index);
-    }
-  }
-  removeTraveller(index): void {
-    // tslint:disable-next-line:triple-equals
-    if (this.traveller.length > 1) {
-      this.traveller.removeAt(index);
     }
   }
   removeCourse(index): void {
@@ -114,9 +104,6 @@ export class TrainingFormComponent {
   }
   get order(): FormArray {
     return this.trainingForm.get('order') as FormArray;
-  }
-  get traveller(): FormArray {
-    return this.trainingForm.get('traveller') as FormArray;
   }
   get item(): FormArray {
     return this.trainingForm.get('item') as FormArray;
@@ -135,35 +122,6 @@ export class TrainingFormComponent {
   }
   deleteFieldValue(index) {
     this.fieldArray.splice(index, 1);
-  }
-
-  buildTravellers() {
-    return this.formBuilder.group({
-      travellerName: ['', Validators.required],
-      travellerNnumber: ['', Validators.required],
-      hotel: this.formBuilder.group({
-        hotelName: ['', Validators.required],
-        hotelCheckIn: ['', Validators.required],
-        hotelCheckOut: ['', Validators.required],
-        hotelCost: ['', Validators.required],
-        hotelAccountUse: ['', Validators.required]
-      }),
-      flight: this.formBuilder.group({
-        flightAirline: ['', Validators.required],
-        departureAirport: ['', Validators.required],
-        arrivalAirport: ['', Validators.required],
-        flightCheckIn: ['', Validators.required],
-        flightCheckOut: ['', Validators.required],
-        flightCost: ['', Validators.required],
-        flightAccountUse: ['', Validators.required]
-      }),
-      car: this.formBuilder.group({
-        addCarName: ['', Validators.required],
-        addCarCollectionDate: ['', Validators.required],
-        addCarReturnDate: ['', Validators.required],
-        addCarPricePerDay: ['', Validators.required]
-      })
-    });
   }
 
   buildCourses() {
